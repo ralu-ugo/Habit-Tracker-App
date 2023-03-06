@@ -1,0 +1,2 @@
+class DailyTrackingsController < ApplicationController
+end
