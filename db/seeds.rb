@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Habit.destroy_all
+User.destroy_all
+
+user = User.create(email: Faker::Internet.email, password: “123456”)
+
+15.times do
+  Habit.create(title: Faker::Hobby.activity, description: Faker::Hobby.activity, favourite: false, start_date: Date.today, end_date: Faker::Date.forward(days: 100), user_id: user.id, repeat: true, monday: true, tuesday: true, friday: true)
+end

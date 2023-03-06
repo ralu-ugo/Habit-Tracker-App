@@ -1,0 +1,16 @@
+<%= simple_form_for(@habit) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :favourite %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :repeat %>
+  <%= f.input :monday %>
+  <%= f.input :tuesday %>
+  <%= f.input :wednesday %>
+  <%= f.input :thursday %>
+  <%= f.input :friday %>
+  <%= f.input :saturday %>
+  <%= f.input :sunday %>
+  <%= f.submit %>
+<% end %>
