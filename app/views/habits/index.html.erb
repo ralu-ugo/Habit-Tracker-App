@@ -1,6 +1,14 @@
-<h1> Your Habits </h1>
+<%# <h1> Your Habits </h1>
 <% @habits.each do |habit| %>
-  <p><%= habit.title %></p>
-  <p><%= habit.description %></p>
-  <%= link_to "habit", habit_path(habit) %>
+  <%# <p><%= habit.title %></p>
+  <%# <p><%= habit.description %></p>
+  <%# <%= link_to "habit", habit_path(habit) %>
+<%# <% end %>
+
+
+<%= month_calendar(events: @habits, attribute: :start_date) do |date, habits| %>
+  <%= date %>
+  <% habits.each do |habit| %>
+    <%= habit.title %>
+  <% end %>
 <% end %>
