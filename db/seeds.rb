@@ -7,9 +7,30 @@
 #   Character.create(name: "Luke", movie: movies.first)
 Habit.destroy_all
 User.destroy_all
+puts "Cleaning database..."
 
-user = User.create(email: Faker::Internet.email, password: “123456”)
+puts "Creating Users and Habits"
+count = 0
 
 15.times do
-  Habit.create(title: Faker::Hobby.activity, description: Faker::Hobby.activity, favourite: false, start_date: Date.today, end_date: Faker::Date.forward(days: 100), user_id: user.id, repeat: true, monday: true, tuesday: true, friday: true)
+  user = User.create(email: Faker::Internet.email, password: "123456")
+
+  3.times do
+    Habit.create(
+      title: Faker::Hobby.activity,
+      description: Faker::Hobby.activity,
+      favourite: false,
+      start_date: Date.today,
+      end_date: Faker::Date.forward(days: 100),
+      user_id: user.id,
+      repeat: [true, false].sample,
+      monday: :repeat ? true : [true, false].sample,
+      tuesday: :repeat ? true : [true, false].sample,
+      friday: :repeat ? true : [true, false].sample,
+      saturday: :repeat ? true : [true, false].sample,
+      sunday: :repeat ? true : [true, false].sample
+    )
+  end
+  count += 1
+  puts "#{count} set done."
 end
