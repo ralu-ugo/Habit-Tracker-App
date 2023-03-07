@@ -1,0 +1,5 @@
+<% @calendars.each do |habit| %>
+  <p><%= habit.calendar_type %></p>
+  <%= link_to "Calendar", calendar_path(habit) %>
+
+<% end %>
