@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="bg">
+  <div class="container">
+  <div class="header">
+    <h1>Habitracker.</h1>
+  </div>
+  <div class="quote">
+    <p>Reach for the stars</p>
+  </div>
+  <div class="user_opt">
+    <p><%= link_to "Sign In", new_user_session_path %></p>
+    <p><%= link_to "Register", new_user_registration_path %></p>
+  </div>
+  </div>
+</div>
