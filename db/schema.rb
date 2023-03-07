@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_173009) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_122830) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendars", force: :cascade do |t|
+    t.date "calendar_start_date"
+    t.date "calendar_end_date"
+    t.string "calendar_type"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_calendars_on_user_id"
+  end
 
   create_table "daily_tracks", force: :cascade do |t|
     t.boolean "completed"
@@ -43,15 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_173009) do
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
-  create_table "schedules", force: :cascade do |t|
-    t.bigint "habit_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["habit_id"], name: "index_schedules_on_habit_id"
-    t.index ["user_id"], name: "index_schedules_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -64,8 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_173009) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "calendars", "users"
   add_foreign_key "daily_tracks", "habits"
   add_foreign_key "habits", "users"
-  add_foreign_key "schedules", "habits"
-  add_foreign_key "schedules", "users"
 end

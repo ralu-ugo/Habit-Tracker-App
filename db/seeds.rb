@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 Habit.destroy_all
 User.destroy_all
+Calendar.destroy_all
 puts "Cleaning database..."
 
 puts "Creating Users and Habits"
@@ -34,3 +35,6 @@ count = 0
   count += 1
   puts "#{count} set done."
 end
+
+user = User.create(email: Faker::Internet.email, password: "123456")
+Calendar.create(calendar_start_date: Date.today, calendar_end_date: Faker::Date.forward(days: 100), calendar_type: "month", user_id: user.id)

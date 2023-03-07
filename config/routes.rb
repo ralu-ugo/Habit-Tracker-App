@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
-  resources :schedules
+  resources :calendars
   resources :habits do
     resources :daily_trackings, only: [ :new, :create, :edit, :update, :destroy ]
   end

@@ -2,4 +2,5 @@
 <% @habits.each do |habit| %>
   <p><%= habit.title %></p>
   <p><%= habit.description %></p>
+  <%= link_to "habit", habit_path(habit) %>
 <% end %>
