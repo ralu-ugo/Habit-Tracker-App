@@ -18,11 +18,9 @@ class HabitsController < ApplicationController
     # @habit.user_id = current_user.id
     if @habit.save
       redirect_to habit_path(@habit)
-      habit_dates(@habit)
     else
       render :new, status: :unprocessable_entity
     end
-    habit_dates(@habit)
   end
 
   def edit
@@ -31,11 +29,9 @@ class HabitsController < ApplicationController
   def update
     if @habit.update(params[habit_params])
       redirect_to habit_path(@habit)
-      habit_dates(@habit)
     else
       render :new, status: :unprocessable_entity
     end
-    habit_dates(@habit)
   end
 
   def destroy
@@ -51,14 +47,5 @@ class HabitsController < ApplicationController
 
   def habit_params
     params.require(:habit).permit(:title, :description, :favourite, :start_date, :end_date, :repeat, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :user_id)
-  end
-
-  def habit_dates(@habit)
-    @filtered_dates = []
-    @dates.map do |date|
-      @habit.weekdays.each { |weekday| @filtered_dates << date if weekday == date.wday }
-    end
-    
-    @filtered_dates
   end
 end
