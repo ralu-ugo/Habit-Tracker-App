@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :habits do
     resources :daily_trackings, only: [ :new, :create, :edit, :update, :destroy ]
   end
+
+  get "/dashboard", to: "pages#dashboard"
 end
