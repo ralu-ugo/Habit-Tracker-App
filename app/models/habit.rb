@@ -2,6 +2,7 @@ class Habit < ApplicationRecord
   belongs_to :user
   has_many :habit_slots
   after_create :create_habit_slots
+  after_update :update_habit_slots
 
   private
 
@@ -27,8 +28,14 @@ class Habit < ApplicationRecord
 
   def create_habit_slots
     dates = self.dates
-    dates.each { |date| habit = HabitSlot.create(habit_id: id, start_time: date) }
-    raise
+    dates.each { |date| HabitSlot.create(habit_id: id, start_time: date) }
+  end
+
+  def update_habit_slots
+    dates = self.dates
+    habitslots = HabitSlot.where(habit_id: id)
+    habitslots.each { |habitslot| habitslot.destroy }
+    dates.each { |date| HabitSlot.create(habit_id: id, start_time: date) }
   end
 
   def dates
