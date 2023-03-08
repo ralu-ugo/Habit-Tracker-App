@@ -1,10 +1,11 @@
+
 <%= simple_form_for(@habit) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :favourite %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :repeat %>
+  <%= f.input :title, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "form-input-dark" } %>
+  <%= f.input :description, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "form-input-dark" } %>
+  <%= f.input :favourite, input_html: { class: "form-favourite"}, as: :boolean, input_html: { class: "toggle" }  %>
+  <%= f.input :start_date, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "start-date-input" } %>
+  <%= f.input :end_date, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "start-date-input" } %>
+  <%= f.input :repeat, as: :boolean, input_html: { class: "toggle" } %>
   <%= f.input :monday %>
   <%= f.input :tuesday %>
   <%= f.input :wednesday %>
@@ -12,5 +13,5 @@
   <%= f.input :friday %>
   <%= f.input :saturday %>
   <%= f.input :sunday %>
-  <%= f.submit %>
+  <%= f.submit  class: "create-button" %>
 <% end %>
