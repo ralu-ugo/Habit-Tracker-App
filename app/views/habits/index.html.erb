@@ -1,16 +1,26 @@
-<%# <h1> Your Habits </h1>
+<h1> Your Habits </h1>
 <% @habits.each do |habit| %>
-  <%# <p><%= habit.title</p> %>
-  <%# <p><%= habit.description</p> %>
-  <%# <%= link_to "habit", habit_path(habit) %>
-<%# <% end %>
+  <p>Title: <%= habit.title %>
+  <p>Description: <%= habit.description %>
+  <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
+  <ul>
+    <% habit.habit_slots.each do |habitslot| %>
+      <li> <%= habitslot.start_time %>
+    <% end %>
+  </ul>
+ <% end %>
+
+ <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
 
 
-<%# <%= month_calendar(events: @habits, attribute: :start_date) do |date, habits| %>
-  <%# <%= date %>
-  <%# <% habits.each do |habit| %>
-    <%# <%= habit.title %> 
-  <%# <% end %>
-<%# <% end %>
+<%= month_calendar(events: @habitslots) do |date, habitslots| %>
+  <%= date %>
+
+  <% habitslots.each do |habitslot| %>
+    <div>
+      <%= habitslot.habit.title %>
+    </div>
+  <% end %>
+<% end %>
 
 <%= render "shared/create_card" %>
