@@ -25,15 +25,18 @@ class Habit < ApplicationRecord
     @weekdays
   end
 
-  def change_date(date)
-    self.start_date = date
+  def create_habit_slots
+    dates = self.dates
+    dates.each { |date| habit = HabitSlot.create(habit_id: id, start_time: date) }
+    raise
   end
 
-  def create_habit_slots
-    # create a habitslots associate it to this habit
-
-    # look at habit and run algorithm
-    # create as many habit slots as needed as per algorithm
-    # associate habitslots to this habit
+  def dates
+    dates = (start_date..end_date).to_a
+    @filtered_dates = []
+    dates.each do |date|
+      weekdays.each { |weekday| @filtered_dates << date if weekday == date.wday }
+    end
+    @filtered_dates
   end
 end
