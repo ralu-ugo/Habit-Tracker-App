@@ -1,5 +1,5 @@
 <% @calendars.each do |habit| %>
   <p><%= habit.calendar_type %></p>
   <%= link_to "Calendar", calendar_path(habit) %>
-
 <% end %>
+<%= "Welcome to Habitracker #{@user.email},  #{@user.habits[0].title}" %>
