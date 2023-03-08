@@ -2,7 +2,13 @@ class HabitsController < ApplicationController
   before_action :find_habit, only: %i[show edit update destroy]
 
   def index
-    @habits = Habit.all
+    @habits = Habit.where(user_id: current_user)
+    @habitslots = []
+    @habits.each do |habit|
+      habit.habit_slots.each do |habitslot|
+        @habitslots << habitslot
+      end
+    end
   end
 
   def show
@@ -15,7 +21,7 @@ class HabitsController < ApplicationController
 
   def create
     @habit = Habit.new(habit_params)
-    # @habit.user_id = current_user.id
+    @habit.user_id = current_user.id
     if @habit.save
       redirect_to habit_path(@habit)
     else
@@ -27,7 +33,7 @@ class HabitsController < ApplicationController
   end
 
   def update
-    if @habit.update(params[habit_params])
+    if @habit.update(habit_params)
       redirect_to habit_path(@habit)
     else
       render :new, status: :unprocessable_entity

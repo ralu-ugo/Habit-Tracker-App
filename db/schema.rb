@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_175040) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_114607) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,13 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_175040) do
     t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
-  create_table "daily_tracks", force: :cascade do |t|
-    t.boolean "completed"
-    t.date "completion_date"
+  create_table "habit_slots", force: :cascade do |t|
     t.bigint "habit_id", null: false
+    t.boolean "completed"
+    t.date "start_time"
+    t.date "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["habit_id"], name: "index_daily_tracks_on_habit_id"
+    t.index ["habit_id"], name: "index_habit_slots_on_habit_id"
   end
 
   create_table "habits", force: :cascade do |t|
@@ -66,6 +67,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_175040) do
   end
 
   add_foreign_key "calendars", "users"
-  add_foreign_key "daily_tracks", "habits"
+  add_foreign_key "habit_slots", "habits"
   add_foreign_key "habits", "users"
 end
