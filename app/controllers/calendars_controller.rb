@@ -2,27 +2,12 @@ class CalendarsController < ApplicationController
   # before_action :find_habit, only: %i[show edit update destroy]
 
   def index
-    @calendars = Calendar.all
+    @calendars = Calendar.where(user_id: current_user)
+    @user = current_user
   end
 
   def show
     @calendar = Calendar.find(params[:id])
-  end
-
-  def add_habits
-    @habits_to_schedule = Habit.index.map do |habit|
-
-    end
-  end
-
-  private
-
-  def habit_dates(habit)
-    @filtered_dates = []
-    @dates.map do |date|
-      @habit.weekdays.each { |weekday| @filtered_dates << date if weekday == date.wday }
-    end
-    @filtered_dates
   end
 
   # def new
@@ -42,13 +27,13 @@ class CalendarsController < ApplicationController
   # def edit
   # end
 
-  # def update
-  #   if @calendar.update(params[habit_params])
-  #     redirect_to habit_path(@calendar)
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    if @calendar.update(params[habit_params])
+      redirect_to habit_path(@calendar)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   # def destroy
   #   @calendar.destroy
