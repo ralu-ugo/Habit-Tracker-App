@@ -1,10 +1,17 @@
 .navbar {
-  height: 50px;
-  color: #ede0e9;
-  background-color: #2d3436cb;
+  height: 70px;
+  background-color: whitesmoke;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
-.navbar-title {
-  padding-left: 8px;
-  font-size: calc(1.375rem + 1.5vw);
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navbar-icon{
+  color: #FFC8DD;
 }
