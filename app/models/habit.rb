@@ -1,6 +1,6 @@
 class Habit < ApplicationRecord
   belongs_to :user
-  has_many :habit_slots
+  has_many :habit_slots, dependent: :destroy
   after_create :create_habit_slots
   after_update :update_habit_slots
 

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Calendar.destroy_all
-
+HabitSlot.destroy_all
 Habit.destroy_all
 User.destroy_all
 puts "Cleaning database..."
@@ -14,10 +14,10 @@ puts "Cleaning database..."
 puts "Creating Users and Habits"
 count = 0
 
-1.times do
+2.times do
   user = User.create(email: Faker::Internet.email, password: "123456")
 
-  3.times do
+  2.times do
     Habit.create(
       title: Faker::Hobby.activity,
       description: Faker::Hobby.activity,
@@ -37,5 +37,5 @@ count = 0
   puts "#{count} set done."
 end
 
-user = User.create(email: Faker::Internet.email, password: "123456")
-Calendar.create(calendar_start_date: Date.today, calendar_end_date: Faker::Date.forward(days: 100), calendar_type: "month", user_id: user.id)
+# user = User.create(email: Faker::Internet.email, password: "123456")
+# Calendar.create(calendar_start_date: Date.today, calendar_end_date: Faker::Date.forward(days: 100), calendar_type: "month", user_id: user.id)

@@ -2,7 +2,13 @@ class HabitsController < ApplicationController
   before_action :find_habit, only: %i[show edit update destroy]
 
   def index
-    @habits = Habit.all
+    @habits = Habit.where(user_id: current_user)
+    @habitslots = []
+    @habits.each do |habit|
+      habit.habit_slots.each do |habitslot|
+        @habitslots << habitslot
+      end
+    end
   end
 
   def show
