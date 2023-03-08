@@ -15,7 +15,6 @@ class CalendarsController < ApplicationController
     end
   end
 
-
   private
 
   def habit_dates(habit)
