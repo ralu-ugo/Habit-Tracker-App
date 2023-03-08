@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
   resources :calendars
-  resources :habits do
-    resources :habit_slots, only: [ :new, :create, :edit, :update, :destroy ]
-  end
+    resources :habits do
+      resources :habit_slots, only: [ :show, :new, :create,:edit, :update ]
+    end
+  resources :habit_slots, only: [:destroy]
 
   get "/dashboard", to: "pages#dashboard"
 end

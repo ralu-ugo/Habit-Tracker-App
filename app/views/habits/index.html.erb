@@ -18,7 +18,7 @@
 
   <% habitslots.each do |habitslot| %>
     <div>
-      <%= habitslot.habit.title %>
+      <p><%= link_to habitslot.habit.title, habit_habit_slot_path(habitslot.habit, habitslot) %></p>
     </div>
   <% end %>
 <% end %>

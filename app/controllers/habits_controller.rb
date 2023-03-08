@@ -41,6 +41,7 @@ class HabitsController < ApplicationController
   end
 
   def destroy
+    @habitslot = HabitSlot.find(params[:id])
     @habit.destroy
     redirect_to habits_path, status: :see_other
   end
