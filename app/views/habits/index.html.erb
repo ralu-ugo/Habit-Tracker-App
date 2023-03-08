@@ -6,9 +6,22 @@
 <%# <% end %>
 
 
-<%= month_calendar(events: @habits, attribute: :start_date) do |date, habits| %>
+<%= calendar = month_calendar(events: @habits, attribute: :start_date) do |date, habits| %>
   <%= date %>
-  <% habits.each do |habit| %>
-    <%= habit.title %>
+  <%  habits.each do |habit| %>
+    <%= habit.title  %>
   <% end %>
+<% end %>
+
+
+<%  @habits.each do |habit| %>
+  <% habit.change_date("2023-03-12") %>
+  <% end %>
+
+  <%= calendar = month_calendar(events: @habits, attribute: :start_date) do |date, habits| %>
+  <%= date %>
+  <%  habits.each do |habit| %>
+    <%= habit.title  %>
+  <% end %>
+
 <% end %>
