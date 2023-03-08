@@ -1,6 +1,9 @@
 class Habit < ApplicationRecord
   belongs_to :user
-  has_many :daily_tracks
+  has_many :habit_slots
+  after_create :create_habit_slots
+
+  private
 
   def weekdays
     @weekdays = []
@@ -20,5 +23,17 @@ class Habit < ApplicationRecord
       @weekdays << 7
     end
     @weekdays
+  end
+
+  def change_date(date)
+    self.start_date = date
+  end
+
+  def create_habit_slots
+    # create a habitslots associate it to this habit
+
+    # look at habit and run algorithm
+    # create as many habit slots as needed as per algorithm
+    # associate habitslots to this habit
   end
 end

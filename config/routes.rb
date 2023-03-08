@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   root "pages#home"
   resources :calendars
   resources :habits do
-    resources :daily_trackings, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :habit_slots, only: [ :new, :create, :edit, :update, :destroy ]
   end
 end

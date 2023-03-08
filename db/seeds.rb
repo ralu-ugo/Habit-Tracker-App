@@ -5,15 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Calendar.destroy_all
+
 Habit.destroy_all
 User.destroy_all
-Calendar.destroy_all
 puts "Cleaning database..."
 
 puts "Creating Users and Habits"
 count = 0
 
-15.times do
+1.times do
   user = User.create(email: Faker::Internet.email, password: "123456")
 
   3.times do
