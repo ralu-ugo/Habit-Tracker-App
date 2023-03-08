@@ -27,7 +27,7 @@ class HabitsController < ApplicationController
   end
 
   def update
-    if @habit.update(params[habit_params])
+    if @habit.update(habit_params)
       redirect_to habit_path(@habit)
     else
       render :new, status: :unprocessable_entity
