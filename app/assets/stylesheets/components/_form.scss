@@ -1,0 +1,46 @@
+.background-container {
+  background-image: url("https://i.pinimg.com/564x/d3/a2/12/d3a212d452fba1879c40c4ccdf657d29.jpg");
+  height: 800px;
+  color: whitesmoke;
+}
+
+.form-container {
+  width: 50%;
+  margin: auto;
+  padding-top: 40%;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.form-inputs input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.form-actions input[type="submit"] {
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-actions input[type="submit"]:hover {
+  background-color: #8f8f95;
+}
+
+.form-buttom-links {
+  text-decoration: none;
+  color: whitesmoke;
+}
