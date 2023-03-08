@@ -1,0 +1,2 @@
+class HabitSlotsController < ApplicationController
+end
