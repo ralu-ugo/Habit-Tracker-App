@@ -1,1 +1,4 @@
-<i data-favourite-target="star" class= "fa-regular fa-star <%= "text-white" if habit.favourite == true %>"></i>
+<i class="fa-regular fa-star <%= "text-white" if habit.favourite %>"
+  onClick="window.location = '/habits/favourite/<%= habit.id %>?favourite=<%= !habit.favourite %>'"
+>
+</i>

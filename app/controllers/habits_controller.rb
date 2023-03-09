@@ -1,5 +1,5 @@
 class HabitsController < ApplicationController
-  before_action :find_habit, only: %i[show edit update destroy]
+  before_action :find_habit, only: %i[show edit update destroy favourite]
 
   def index
     @habits = Habit.where(user_id: current_user)
@@ -78,6 +78,14 @@ class HabitsController < ApplicationController
   def update
     if @habit.update(habit_params)
       redirect_to habit_path(@habit)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def favourite
+    if @habit.set_favourite(params[:favourite]).save
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end
