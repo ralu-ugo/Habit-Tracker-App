@@ -12,11 +12,45 @@
     </div>
   </div>
   <%# <%= if current_user.habits.favourite? %>
-</div>
 
 <%# list habits (those that're favourited), each habit links to show page %>
 
 
-<% @habits.each do |habit| %>
-  <%= link_to habit.title, habit_path(habit) %>
+
+
+<%# <% @habits.each do |habit|
+#   <%# <%= link_to habit.title, habit_path(habit) %>
+  <%# <% end %>
+
+
+<% @fav_habits.each do |habit| %>
+ <div class = "dashboard-card" data-controller="favourite" data-action="click->favourite#colorStar">
+    <%= render "shared/star", habit: habit%>
+  <div class = "habit-name">
+    <%= habit.title %>
+  </div>
+</div>
 <% end %>
+<<<<<<< HEAD
+=======
+
+
+<%# icon to home
+<div class="btn btn-primary"><%= link_to "link to dashboard", dashboard_path %>
+
+<%# icon to habit index %>
+<%# <div class="btn btn-primary"><%= link_to "view all habits", habits_path</div>  %>
+
+<%# icon to schedule section %>
+<%# <div class="btn btn-primary"><%= link_to "look at todays schedule", schedule_today_path %>
+
+<%# create habit
+ <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %>
+
+<%# icon to progress section %>
+ <%# <div class="btn btn-primary"> <%= link_to "progress page", progress_page_path %>
+
+<%# icon to settings section %>
+
+</div>
+>>>>>>> 4ad88e83af144cdce1dc061050913a6380f8c262

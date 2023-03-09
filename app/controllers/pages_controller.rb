@@ -6,10 +6,16 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @habits = Habit.where(user_id: current_user, favourite: true)
+    @fav_habits = Habit.where(user_id: current_user, favourite: true)
+    @habits = Habit.where(user_id: current_user)
   end
 
   def schedule_today
+    @date = Date.today
+    @habitslots = HabitSlot.where(start_time: @date)
+  end
+
+  def schedule_day_dynamic
     @date = Date.today
     @habitslots = HabitSlot.where(start_time: @date)
   end

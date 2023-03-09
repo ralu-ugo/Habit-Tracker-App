@@ -5,16 +5,19 @@
   <%= f.input :start_date, html5:true, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "start-date-input" } %>
   <%= f.input :end_date, html5:true, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "start-date-input" } %>
   <%= f.input :repeat, as: :boolean, input_html: { class: "toggle" } %>
-  <div class="icon-line">
-    <%= f.input :monday, as: :boolean, label: '<i class="fa-solid fa-m"></i>'.html_safe %>
-    <%= f.input :tuesday, as: :boolean, label: '<i class="fa-solid fa-t"></i>'.html_safe %>
-    <%= f.input :wednesday, as: :boolean, label: '<i class="fa-solid fa-w"></i>'.html_safe %>
-    <%= f.input :thursday, as: :boolean, label: '<i class="fa-solid fa-t"></i>'.html_safe %>
-    <%= f.input :friday, as: :boolean, label: '<i class="fa-solid fa-f"></i>'.html_safe %>
-    <%= f.input :saturday, as: :boolean, label: '<i class="fa-solid fa-s"></i>'.html_safe %>
-    <%= f.input :sunday, as: :boolean, label: '<i class="fa-solid fa-s"></i>'.html_safe %>
+  <div class="icon-line" data-controller="dateselect">
+    <%= f.input :monday, as: :boolean, label: '<i class="fa-solid fa-m", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="monday"></i>'.html_safe, input_html: { class: "icon" } %>
+    <%= f.input :tuesday, as: :boolean, label: '<i class="fa-solid fa-t", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="tuesday"></i>'.html_safe, input_html: { class: "icon" } %>
+    <%= f.input :wednesday, as: :boolean, label: '<i class="fa-solid fa-w", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="wednesday"></i>'.html_safe, input_html: { class: "icon" } %>
+    <%= f.input :thursday, as: :boolean, label: '<i class="fa-solid fa-t", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="thursday"></i>'.html_safe, input_html: { class: "icon" } %>
+    <%= f.input :friday, as: :boolean, label: '<i class="fa-solid fa-f", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="friday"></i>'.html_safe, input_html: { class: "icon" } %>
+    <%= f.input :saturday, as: :boolean, label: '<i class="fa-solid fa-s", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="saturday"></i>'.html_safe, input_html: { class: "icon" } %>
+    <%= f.input :sunday, as: :boolean, label: '<i class="fa-solid fa-s", data-action= "click->dateselect#toggleIcon" "data-dateselect-target="sunday"></i>'.html_safe, input_html: { class: "icon" } %>
   </div>
-  <%= f.input :colour, collection: ['red', 'green', 'blue'] %>
-  <%= f.submit  class: "create-button" %>
+    <%= f.input :colour, collection: ['red', 'green', 'blue'] %>
+    <%= f.submit  class: "create-button" %>
 
 <% end %>
+
+
+

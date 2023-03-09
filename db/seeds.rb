@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+<<<<<<< HEAD
 # Calendar.destroy_all
+=======
+>>>>>>> 4ad88e83af144cdce1dc061050913a6380f8c262
 HabitSlot.destroy_all
 Habit.destroy_all
 User.destroy_all
@@ -26,16 +29,14 @@ count = 0
       end_date: Faker::Date.forward(days: 100),
       user_id: user.id,
       repeat: [true, false].sample,
-      monday: :repeat ? true : [true, false].sample,
-      tuesday: :repeat ? true : [true, false].sample,
-      friday: :repeat ? true : [true, false].sample,
-      saturday: :repeat ? true : [true, false].sample,
-      sunday: :repeat ? true : [true, false].sample
+      everyday: :repeat ? true : false,
+      monday: :everyday ? true : [true, false].sample,
+      tuesday: :everyday ? true : [true, false].sample,
+      friday: :everyday ? true : [true, false].sample,
+      saturday: :everyday ? true : [true, false].sample,
+      sunday: :everyday ? true : [true, false].sample
     )
   end
   count += 1
-  puts "#{count} set done."
+  puts "#{count} set(s) done."
 end
-
-# user = User.create(email: Faker::Internet.email, password: "123456")
-# Calendar.create(calendar_start_date: Date.today, calendar_end_date: Faker::Date.forward(days: 100), calendar_type: "month", user_id: user.id)
