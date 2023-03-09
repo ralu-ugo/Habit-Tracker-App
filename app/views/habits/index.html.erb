@@ -3,15 +3,13 @@
 <% @habits.each do |habit| %>
   <p>Title: <%= habit.title %>
   <p>Description: <%= habit.description %>
-  <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
-  <ul>
+  <%# <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %>
+  <%# <ul>
     <% habit.habit_slots.each do |habitslot| %>
-      <li> <%= habitslot.start_time %>
-    <% end %>
-  </ul>
- <% end %>
+      <%# <li> <%= habitslot.start_time %>
+    <%# <% end %>
+  <%# </ul> %>
+ <% end%>
 
 <%# button to create a new habit %>
  <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
-
-
