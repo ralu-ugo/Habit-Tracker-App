@@ -312,6 +312,11 @@ chrome-trace-event@^1.0.2:
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.3.tgz#1015eced4741e15d06664a957dbbf50d041e26ac"
   integrity sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==
 
+circlebars@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/circlebars/-/circlebars-1.0.4.tgz#b86575c01c9e39aeb3db7207ef0ad6690f74146b"
+  integrity sha512-go4+tJ6UAZx8ZSsU8OEkUnm3JYtj/tnik/bOnlrC/LkFaJcMT/B6+CEJYgO3CWDTPqa0XM7UA/qRYU1ZuAmRMQ==
+
 clone-deep@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/clone-deep/-/clone-deep-4.0.1.tgz#c19fd9bdbbf85942b4fd979c84dcf7d5f07c2387"

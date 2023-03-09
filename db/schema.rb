@@ -24,18 +24,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_163813) do
     t.index ["user_id"], name: "index_calendars_on_user_id"
   end
 
-  create_table "daily_tracks", force: :cascade do |t|
-    t.boolean "completed"
-    t.date "completion_date"
-    t.bigint "habit_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["habit_id"], name: "index_daily_tracks_on_habit_id"
-  end
-
   create_table "habit_slots", force: :cascade do |t|
     t.bigint "habit_id", null: false
-    t.boolean "completed", default: false
+    t.boolean "completed"
     t.date "start_time"
     t.date "end_time"
     t.datetime "created_at", null: false
@@ -60,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_163813) do
     t.boolean "sunday", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "everyday", default: false
+    t.boolean "everyday"
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
@@ -77,7 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_163813) do
   end
 
   add_foreign_key "calendars", "users"
-  add_foreign_key "daily_tracks", "habits"
   add_foreign_key "habit_slots", "habits"
   add_foreign_key "habits", "users"
 end
