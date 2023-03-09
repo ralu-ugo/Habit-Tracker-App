@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_163813) do
     t.boolean "sunday", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "everyday", default: false
+    t.boolean "everyday"
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
 
