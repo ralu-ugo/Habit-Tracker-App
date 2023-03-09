@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :habit_slots, only: [:destroy]
 
   get "/dashboard", to: "pages#dashboard"
+
+  get "/setting", to: "pages#setting"
+
   get "/schedule_today", to: "pages#schedule_today", as: "schedule_today"
   get "/calendar", to: "pages#calendar", as: "calendar"
   get "/progress_page", to: "pages#progress_page", as: "progress_page"

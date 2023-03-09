@@ -1,0 +1,22 @@
+.footer {
+  height: 50px;
+  color: black;
+  background-position: center;
+  padding: 8px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  // border-bottom: solid;
+}
+
+.footer-title {
+  padding-left: 8px;
+  font-size: calc(1.375rem + 1.5vw);
+  padding: 8px;
+}
+
+.footer-icon {
+  color: black;
+  padding: 8px;
+}

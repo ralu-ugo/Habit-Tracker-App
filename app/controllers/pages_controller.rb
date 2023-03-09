@@ -26,4 +26,7 @@ class PagesController < ApplicationController
 
   def progress_page
   end
+
+  def setting
+  end
 end
