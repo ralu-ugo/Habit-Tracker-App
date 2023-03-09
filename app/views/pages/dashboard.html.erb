@@ -1,2 +1,31 @@
 <%= render "shared/dashboard_card" %>
+<%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+<div class="banner">
+    <div class="content">
+    <h1>Welcome <strong>back</strong> Mary <strong></strong>!</h1>
+    <p>Tuesday,07th March 2023</p>
+    <p>Nothing is particulary hard if you break it down into small jobs...</p>
+    </div>
+</div>
 
+<%# list habits (those that're favourited), each habit links to show page %>
+<% @habits.each do |habit| %>
+  <%= link_to habit.title, habit_path(habit) %>
+<% end %>
+
+<%# icon to home %>
+<div class="btn btn-primary"><%= link_to "link to dashboard", dashboard_path %></div>
+
+<%# icon to habit index %>
+<div class="btn btn-primary"><%= link_to "view all habits", habits_path %></div>
+
+<%# icon to schedule section %>
+<div class="btn btn-primary"><%= link_to "look at todays schedule", schedule_today_path %></div>
+
+<%# create habit %>
+ <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
+
+<%# icon to progress section %>
+ <div class="btn btn-primary"> <%= link_to "progress page", progress_page_path %></div>
+
+<%# icon to settings section %>

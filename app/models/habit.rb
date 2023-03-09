@@ -38,4 +38,8 @@ class Habit < ApplicationRecord
     end
     @filtered_dates
   end
+
+  def favourite
+    self.favourite = true
+  end
 end

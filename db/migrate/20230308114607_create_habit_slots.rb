@@ -2,7 +2,7 @@ class CreateHabitSlots < ActiveRecord::Migration[7.0]
   def change
     create_table :habit_slots do |t|
       t.references :habit, null: false, foreign_key: true
-      t.boolean :completed
+      t.boolean :completed, default: false
       t.date :start_time
       t.date :end_time
 

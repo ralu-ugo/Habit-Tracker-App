@@ -3,12 +3,6 @@ class HabitsController < ApplicationController
 
   def index
     @habits = Habit.where(user_id: current_user)
-    @habitslots = []
-    @habits.each do |habit|
-      habit.habit_slots.each do |habitslot|
-        @habitslots << habitslot
-      end
-    end
   end
 
   def show
@@ -90,6 +84,7 @@ class HabitsController < ApplicationController
   end
 
   def destroy
+    @habitslot = HabitSlot.find(params[:id])
     @habit.destroy
     redirect_to habits_path, status: :see_other
   end
