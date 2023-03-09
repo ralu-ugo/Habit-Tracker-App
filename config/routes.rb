@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   get "/dashboard", to: "pages#dashboard"
+  get "/setting", to: "pages#setting"
 end
