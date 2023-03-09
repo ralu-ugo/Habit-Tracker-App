@@ -89,6 +89,7 @@ class HabitsController < ApplicationController
     redirect_to habits_path, status: :see_other
   end
 
+
   private
 
   def find_habit
@@ -111,7 +112,8 @@ class HabitsController < ApplicationController
       :friday,
       :saturday,
       :sunday,
-      :user_id
+      :user_id,
+      :colour
     )
   end
 end

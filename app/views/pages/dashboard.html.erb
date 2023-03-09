@@ -16,6 +16,8 @@
 </div>
 
 <%# list habits (those that're favourited), each habit links to show page %>
+
+
 <% @habits.each do |habit| %>
   <%= link_to habit.title, habit_path(habit) %>
 <% end %>
@@ -36,4 +38,3 @@
  <div class="btn btn-primary"> <%= link_to "progress page", progress_page_path %></div>
 
 <%# icon to settings section %>
-
