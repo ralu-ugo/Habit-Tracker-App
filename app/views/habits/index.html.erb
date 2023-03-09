@@ -1,30 +1,23 @@
-<%# Info about habits, link to habit show page of each one %>
-<h1> Your Habits </h1>
-<% @habits.each do |habit| %>
-<<<<<<< HEAD
-  <p>Title: <%= habit.title %>
-  <p>Description: <%= habit.description %>
-  <%# <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %>
-  <%# <ul>
-    <% habit.habit_slots.each do |habitslot| %>
-      <%# <li> <%= habitslot.start_time %>
-    <%# <% end %>
-  <%# </ul> %>
- <% end%>
-=======
-  <div class="card" style="background: <%= habit.colour %>;">
-    <p>Title: <%= habit.title %>
-    <p>Description: <%= habit.description %>
-    <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
-    <ul>
-      <% habit.habit_slots.each do |habitslot| %>
-        <li> <%= habitslot.start_time %>
+<%= render "shared/footer" %>
+  <div class="habits-index">
+    <%= form_with url: habits_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search",
+        placeholder: "   search"
+      %>
+    <% end %>
+
+    <h1 class="index-title"> Your Habits </h1>
+    <div class="habits-display">
+      <% @habits.each do |habit| %>
+        <%= link_to habit_path(habit) do %>
+          <div class="habit-card">
+            <%# class="card" style="background: <%= habit.colour %>
+            <p>Habit: <%= habit.title %>
+            <p>Description: <%= habit.description %>
+          </div>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
-
- <% end %>
->>>>>>> 4631891e421d47d959f194454e9fbba2f39e870c
-
-<%# button to create a new habit %>
- <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
