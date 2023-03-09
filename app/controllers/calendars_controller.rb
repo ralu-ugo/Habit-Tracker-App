@@ -10,8 +10,8 @@ class CalendarsController < ApplicationController
   end
 
   def add_habits
-    @habits_to_schedule = Habit.index.map do |habit|
-    end
+    # @habits_to_schedule = Habit.index.map do |habit|
+    # end
   end
 
   private
