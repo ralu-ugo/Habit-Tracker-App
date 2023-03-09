@@ -16,12 +16,23 @@
 
 <%# list habits (those that're favourited), each habit links to show page %>
 
-<%= render "shared/dashboard_card"%>
 
 
-<% @habits.each do |habit| %>
-  <%= link_to habit.title, habit_path(habit) %>
+
+<%# <% @habits.each do |habit|
+#   <%# <%= link_to habit.title, habit_path(habit) %>
+  <%# <% end %>
+
+
+<% @fav_habits.each do |habit| %>
+ <div class = "dashboard-card" data-controller="favourite" data-action="click->favourite#colorStar">
+    <%= render "shared/star", habit: habit%>
+  <div class = "habit-name">
+    <%= habit.title %>
+  </div>
+</div>
 <% end %>
+
 
 <%# icon to home
 <div class="btn btn-primary"><%= link_to "link to dashboard", dashboard_path %>
