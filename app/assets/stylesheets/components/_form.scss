@@ -32,7 +32,7 @@
 .form-input-dark:focus-visible {
   background: white;
   border: none;
-  color: white;
+  color: black;
   height: 60px;
 }
 
@@ -191,11 +191,11 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
-.form-star:hover {
+.form-star:active {
   background-color: #ccc;
 }
 
-.fa-solid:hover {
+.fa-solid:active{
   background-color: #ccc;
 }
 
@@ -210,4 +210,10 @@ input[type=checkbox] {
 
 .form-check {
   display: flex;
+}
+
+
+.icon-line {
+  display: flex;
+
 }

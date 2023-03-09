@@ -1,6 +1,7 @@
 <%# Info about habits, link to habit show page of each one %>
 <h1> Your Habits </h1>
 <% @habits.each do |habit| %>
+<<<<<<< HEAD
   <p>Title: <%= habit.title %>
   <p>Description: <%= habit.description %>
   <%# <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %>
@@ -10,6 +11,20 @@
     <%# <% end %>
   <%# </ul> %>
  <% end%>
+=======
+  <div class="card" style="background: <%= habit.colour %>;">
+    <p>Title: <%= habit.title %>
+    <p>Description: <%= habit.description %>
+    <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
+    <ul>
+      <% habit.habit_slots.each do |habitslot| %>
+        <li> <%= habitslot.start_time %>
+      <% end %>
+    </ul>
+  </div>
+
+ <% end %>
+>>>>>>> 4631891e421d47d959f194454e9fbba2f39e870c
 
 <%# button to create a new habit %>
  <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
