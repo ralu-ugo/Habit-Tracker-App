@@ -42,4 +42,10 @@ class Habit < ApplicationRecord
   def favourite
     self.favourite = true
   end
+
+  def calculate_completed
+    total_habitslots = HabitSlot.where(habit_id: id, user_id: current_user)
+    completed_habitslots = HabitSlot.where(habit_id: id, user_id: current_user, completed: true)
+    @habitslot_progress = completed_habitslots / total_habitslots
+  end
 end
