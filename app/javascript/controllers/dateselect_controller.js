@@ -7,10 +7,7 @@ export default class extends Controller {
   console.log("hello")
   }
 
-  toggleIcon() {
-    this.targets.forEach((target) => {
-      const clickedTarget = target.currentTarget;
-      clickedTarget.classList.toggle("icon-active")
-    });
-  }
+  toggleIcon(event) {
+    event.currentTarget.classList.toggle("icon-active")
+  };
 }
