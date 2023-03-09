@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "pages#dashboard"
 
+  get '/habits/favourite/:id', to: 'habits#favourite'
+
   get "/setting", to: "pages#setting"
 
   get "/schedule_today", to: "pages#schedule_today", as: "schedule_today"
