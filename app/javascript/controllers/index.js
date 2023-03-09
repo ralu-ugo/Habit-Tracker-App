@@ -9,3 +9,9 @@ application.register("favourite", FavouriteController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import CircularbarController from "./circularbar_controller"
+application.register("circularbar", CircularbarController)
+
+import DateselectController from "./dateselect_controller"
+application.register("dateselect", DateselectController)
