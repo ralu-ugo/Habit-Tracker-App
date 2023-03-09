@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @habits = Habit.where(user_id: current_user, favourite: true)
+    @habits = Habit.where(user_id: current_user)
   end
 
   def schedule_today
