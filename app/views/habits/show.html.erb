@@ -1,1 +1,14 @@
- <div class="btn btn-primary"> <%= link_to "edit habit", edit_habit_path %></div>
+<%# Info about habit %>
+  <div> <%= @habit.description %></div>
+
+<%# Button to edit this habit %>
+  <div class="btn btn-primary"> <%= link_to "edit habit", edit_habit_path %></div>
+<%# Button to delete this habit %>
+  <div class="btn btn-primary"><%= link_to "Delete", habit_path(@habit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+<%# Go back to index page %>
+  <div class="btn btn-primary"> <%= link_to "back", habits_path %></div>
+
+
+  
+<%# button to favourite this habit
+ <div class="btn btn-primary">Favourite</div> %>

@@ -3,12 +3,6 @@ class HabitsController < ApplicationController
 
   def index
     @habits = Habit.where(user_id: current_user)
-    @habitslots = []
-    @habits.each do |habit|
-      habit.habit_slots.each do |habitslot|
-        @habitslots << habitslot
-      end
-    end
   end
 
   def show
@@ -20,10 +14,59 @@ class HabitsController < ApplicationController
   end
 
   def create
-    @habit = Habit.new(habit_params)
+    @habit = Habit.create(habit_params)
     @habit.user_id = current_user.id
+    if @habit.repeat == true
+      if @habit.everyday == true
+        @habit.monday = true
+        @habit.tuesday = true
+        @habit.wednesday = true
+        @habit.thursday = true
+        @habit.friday = true
+        @habit.saturday = true
+        @habit.sunday = true
+      end
+    elsif @habit.repeat == false
+      if @habit.monday == true
+        @habit.tuesday = false
+        @habit.wednesday = false
+        @habit.thursday = false
+        @habit.friday = false
+        @habit.saturday = false
+        @habit.sunday = false
+      end
+      if @habit.tuesday == true
+        @habit.monday = false
+        @habit.wednesday = false
+        @habit.thursday = false
+        @habit.friday = false
+        @habit.saturday = false
+        @habit.sunday = false
+      end
+      if @habit.wednesday == true
+        @habit.monday = false
+        @habit.tuesday = false
+        @habit.thursday = false
+        @habit.friday = false
+        @habit.saturday = false
+        @habit.sunday = false
+      end
+      if @habit.thursday == true
+        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.friday && @habit.saturday && @habit.sunday = false
+      end
+      if @habit.friday == true
+        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.saturday && @habit.sunday = false
+      end
+      if @habit.saturday == true
+        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.sunday = false
+      end
+      if @habit.sunday == true
+        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday = false
+      end
+    end
+    @habit.save!
     if @habit.save
-      redirect_to habit_path(@habit)
+      redirect_to habits_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -41,6 +84,7 @@ class HabitsController < ApplicationController
   end
 
   def destroy
+    @habitslot = HabitSlot.find(params[:id])
     @habit.destroy
     redirect_to habits_path, status: :see_other
   end
@@ -52,6 +96,22 @@ class HabitsController < ApplicationController
   end
 
   def habit_params
-    params.require(:habit).permit(:title, :description, :favourite, :start_date, :end_date, :repeat, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday, :user_id)
+    params.require(:habit).permit(
+      :title,
+      :description,
+      :favourite,
+      :start_date,
+      :end_date,
+      :repeat,
+      :everyday,
+      :monday,
+      :tuesday,
+      :wednesday,
+      :thursday,
+      :friday,
+      :saturday,
+      :sunday,
+      :user_id
+    )
   end
 end

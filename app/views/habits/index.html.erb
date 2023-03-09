@@ -1,3 +1,4 @@
+<%# Info about habits, link to habit show page of each one %>
 <h1> Your Habits </h1>
 <% @habits.each do |habit| %>
   <p>Title: <%= habit.title %>
@@ -10,15 +11,7 @@
   </ul>
  <% end %>
 
+<%# button to create a new habit %>
  <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
 
 
-<%= month_calendar(events: @habitslots) do |date, habitslots| %>
-  <%= date %>
-
-  <% habitslots.each do |habitslot| %>
-    <div>
-      <%= habitslot.habit.title %>
-    </div>
-  <% end %>
-<% end %>
