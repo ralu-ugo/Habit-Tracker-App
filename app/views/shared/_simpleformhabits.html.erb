@@ -1,15 +1,16 @@
+
 <%= simple_form_for(@habit) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :repeat %>
-  <%= f.input :monday %>
-  <%= f.input :tuesday %>
-  <%= f.input :wednesday %>
-  <%= f.input :thursday %>
-  <%= f.input :friday %>
-  <%= f.input :saturday %>
-  <%= f.input :sunday %>
-  <%= f.submit %>
+  <%= f.input :title, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "form-input-dark" } %>
+  <%= f.input :description, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "form-input-dark" } %>
+  <%= f.input :start_date, html5:true, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "start-date-input" } %>
+  <%= f.input :end_date, html5:true, wrapper_html: { class: "form-title-wrapper" }, input_html: { class: "start-date-input" } %>
+  <%= f.input :repeat, as: :boolean, input_html: { class: "toggle" } %>
+  <%= f.input :monday, as: :boolean, label: '<i class="fa-solid fa-m"></i>'.html_safe %>
+  <%= f.input :tuesday, as: :boolean, label: '<i class="fa-solid fa-t"></i>'.html_safe %>
+  <%= f.input :wednesday, as: :boolean, label: '<i class="fa-solid fa-w"></i>'.html_safe %>
+  <%= f.input :thursday, as: :boolean, label: '<i class="fa-solid fa-t"></i>'.html_safe %>
+  <%= f.input :friday, as: :boolean, label: '<i class="fa-solid fa-f"></i>'.html_safe %>
+  <%= f.input :saturday, as: :boolean, label: '<i class="fa-solid fa-s"></i>'.html_safe %>
+  <%= f.input :sunday, as: :boolean, label: '<i class="fa-solid fa-s"></i>'.html_safe %>
+  <%= f.submit  class: "create-button" %>
 <% end %>

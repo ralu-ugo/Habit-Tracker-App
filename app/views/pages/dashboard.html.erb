@@ -1,4 +1,12 @@
 <%= render "shared/dashboard_card" %>
+<%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+<div class="banner">
+    <div class="content">
+    <h1>Welcome <strong>back</strong> Mary <strong></strong>!</h1>
+    <p>Tuesday,07th March 2023</p>
+    <p>Nothing is particulary hard if you break it down into small jobs...</p>
+    </div>
+</div>
 
 <%# list habits (those that're favourited), each habit links to show page %>
 <% @habits.each do |habit| %>
