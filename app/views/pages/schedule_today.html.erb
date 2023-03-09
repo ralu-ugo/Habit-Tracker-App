@@ -1,0 +1,7 @@
+<%# @habitslots = all the habitslots for a user today. loop through them to display todays schedule %>
+<% @habitslots.each do |habitslot| %>
+ <%= habitslot.habit.title %>
+<% end %>
+
+<%# button to link to broader calendar %>
+<div class="btn btn-primary"><%= link_to "back to calendar", calendar_path %></div>
