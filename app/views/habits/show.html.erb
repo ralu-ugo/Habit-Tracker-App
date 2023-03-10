@@ -6,6 +6,7 @@
       <div class="habit-card-show">
         <h2><%= @habit.title %></h2>
         <p><%= @habit.description %></p>
+        <div class="position-star-show"><%= render "shared/star", habit: @habit %></div>
       </div>
     </div>
     <div data-controller="circularbar" class="pie" data-pie='{ "colorCircle": "#FFFFFF", "fontColor": "#FFFFFF", "percent": 80 }' ></div>
@@ -14,7 +15,7 @@
       <div class="btn-ghost"> <%= link_to "Change Habit", edit_habit_path %></div>
       <div class="btn-ghost"><%= link_to "Remove Habit", habit_path(@habit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
     </div>
-    <%= render "shared/navbar" %>`
+    <%= render "shared/navbar" %>
   </div>
 
 <%# <%=  @habit_completion_rate %>
