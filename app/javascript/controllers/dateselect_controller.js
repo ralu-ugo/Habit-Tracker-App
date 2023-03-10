@@ -8,11 +8,8 @@ export default class extends Controller {
   console.log(this.targets)
   }
 
-  toggleIcon() {
-    const test = this.targets
-    console.log(test);
-    test.forEach((target => {
-      target.classList.add("icon-active")
-    }))
-  }
+  toggleIcon(event) {
+    event.currentTarget.classList.toggle("icon-active")
+  };
+
 }
