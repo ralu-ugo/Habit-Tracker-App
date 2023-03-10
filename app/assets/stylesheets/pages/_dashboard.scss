@@ -16,7 +16,7 @@
   margin: 10px;
 }
 
-.habit-card:hover{
+.habit-card-dashboard:hover{
   transition: 1s;
   color: #4A4A4A;
   opacity: 0.6;
@@ -52,6 +52,7 @@
 .info-section {
   margin-top: 50px;
   padding: 10px;
+  padding-top: 2rem;
 }
 
 .button-container {

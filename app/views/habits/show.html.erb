@@ -1,22 +1,20 @@
-<%# Info about habit %>
-  <%= current_user.calculate_habit_completion_rate %>
-
-<div data-controller="circularbar">
-  <div class="pie" data-pie='{ "percent": <%=  @habit_completion_rate %> }' >
-
-
+<div class="container-show">
+  <%= render "shared/footer" %>`
+  <div class="content">
+    <div class="btn-ghost button-position"> <%= link_to "Back", habits_path %></div>
+    <div class="habit-card-section">
+      <div class="habit-card-show">
+        <h2><%= @habit.title %></h2>
+        <p><%= @habit.description %></p>
+      </div>
+    </div>
+    <div data-controller="circularbar" class="pie" data-pie='{ "colorCircle": "#FFFFFF", "fontColor": "#FFFFFF", "percent": 80 }' ></div>
+    <div class="progresstext"><h2>Completion rate for this habit</h2></div>
+    <div class="button-container-show">
+      <div class="btn-ghost"> <%= link_to "Change Habit", edit_habit_path %></div>
+      <div class="btn-ghost"><%= link_to "Remove Habit", habit_path(@habit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+    </div>
+    <%= render "shared/navbar" %>`
   </div>
-</div>
 
-
-<%# Button to edit this habit %>
-  <div class="btn btn-primary"> <%= link_to "edit habit", edit_habit_path %></div>
-<%# Button to delete this habit %>
-  <div class="btn btn-primary"><%= link_to "Delete", habit_path(@habit), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
-<%# Go back to index page %>
-  <div class="btn btn-primary"> <%= link_to "back", habits_path %></div>
-
-<%= render "shared/navbar" %>
-
-<%# button to favourite this habit
- <div class="btn btn-primary">Favourite</div> %>
+<%# <%=  @habit_completion_rate %>

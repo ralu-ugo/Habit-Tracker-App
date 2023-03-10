@@ -56,6 +56,10 @@ class Habit < ApplicationRecord
     habit.habit_slots.each do |habitslot|
         completed_habitslots_count += 1 if habitslot.completed == true
     end
-    (completed_habitslots_count / total_habitslots_count) * 100
+    if total_habitslots_count > 0
+      (completed_habitslots_count / total_habitslots_count) * 100
+    else
+      0
+    end
   end
 end

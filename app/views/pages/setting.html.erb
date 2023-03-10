@@ -1,5 +1,9 @@
+<body class="settings-page">
+
+
 <%= render "shared/navbar"%>
 <%= render "shared/footer" %>
+<div class="setting-image">
 <div class="settings">
     <h1 class="settings-title"> <strong>Settings</strong></h1>
 <%# <div class="button">
@@ -19,5 +23,8 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 
- <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+ <%# <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete}%>
+</body>
