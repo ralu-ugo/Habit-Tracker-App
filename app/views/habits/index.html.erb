@@ -8,13 +8,7 @@
       placeholder: "   search"
     %>
   <% end %>
-  <div class="habits-display">
-    <% @habits.each do |habit| %>
-      <%= link_to habit_path(habit) do %>
-        <div class="habit-card">
-          <p><%= habit.title %>
-          <p><%= habit.description %>
-        </div>
+
 <%# Info about habits, link to habit show page of each one %>
 <h1> Your Habits </h1>
 
@@ -24,12 +18,7 @@
     <p>Description: <%= habit.description %>
     <%= render "shared/star", habit: habit %>
     <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
-    <ul>
-      <% habit.habit_slots.each do |habitslot| %>
-        <li> <%= habitslot.start_time %>
-      <% end %>
-
-    <% end %>
+  <% end %>
   </div>
 </div>
 <%= render "shared/navbar" %>
