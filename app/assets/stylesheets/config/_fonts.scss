@@ -1,11 +1,11 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100&display=swap');
 
 // Define fonts for body and headers
-$body-font: 'Righteous', cursive;
-$headers-font: 'Righteous', cursive;
-$font-color: black;
+$body-font: 'Urbanist', sans-serif;
+$headers-font: 'Urbanist', sans-serif;
+$font-color: #F6F7F8;
 
 
 // To use a font file (.woff) uncomment following lines
@@ -17,3 +17,9 @@ $font-color: black;
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+// .header{
+//   font-family: $headers-font;
+//   font-weight: 700;
+//   color: #F6F7F8;
+// }

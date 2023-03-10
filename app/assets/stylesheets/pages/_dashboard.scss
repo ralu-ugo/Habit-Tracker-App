@@ -1,7 +1,7 @@
 
 .container-dashboard {
   background-image: url("image.png");
-  height: 852px;
+  height: 100%;
 }
 
 .backgr {
@@ -14,19 +14,18 @@ ul{
   list-style: none;
 }
 
-.habit-card{
-  display: inline-block;
-  width: 300px;
-  background-color: rgba(0, 255, 255, 0.586);
-  border-radius: 12px;
-  padding: 8px;
-  margin-top: 16px;
-  transition: 1s;
+// .habit-card{
+//   display: inline-block;
+//   width: 300px;
+//   background-color: rgba(0, 255, 255, 0.586);
+//   border-radius: 12px;
+//   padding: 8px;
+//   margin-top: 16px;
+//   transition: 1s;
 
-}
+// }
 
 .habit-card:hover{
   transition: 1s;
   background-color: aqua;
 }
-
