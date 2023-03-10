@@ -19,11 +19,12 @@ count = 0
 2.times do
   user = User.create(email: Faker::Internet.email, password: "123456")
 
+
   3.times do
     Habit.create(
       title: Faker::Hobby.activity,
-      description: Faker::Hobby.activity,
-      favourite: false,
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      favourite: [true, false].sample,
       start_date: Date.today,
       end_date: Faker::Date.forward(days: 100),
       user_id: user.id,
