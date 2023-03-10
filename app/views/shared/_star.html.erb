@@ -1,1 +1,4 @@
-<i class="fa-regular fa-star"></i>
+<i class="fa-regular fa-star <%= "text-white" if habit.favourite %>"
+  onClick="window.location = '/habits/favourite/<%= habit.id %>?favourite=<%= !habit.favourite %>'"
+>
+</i>

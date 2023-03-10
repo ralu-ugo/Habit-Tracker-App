@@ -1,9 +1,11 @@
 <%# Info about habits, link to habit show page of each one %>
 <h1> Your Habits </h1>
+
 <% @habits.each do |habit| %>
   <div class="card" style="background: <%= habit.colour %>;">
     <p>Title: <%= habit.title %>
     <p>Description: <%= habit.description %>
+    <%= render "shared/star", habit: habit %>
     <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
     <ul>
       <% habit.habit_slots.each do |habitslot| %>

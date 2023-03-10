@@ -4,6 +4,12 @@ class Habit < ApplicationRecord
   after_create :create_habit_slots
   after_update :update_habit_slots
 
+  def set_favourite(favourite)
+    self.favourite = favourite
+
+    self
+  end
+
   private
 
   def weekdays
@@ -37,10 +43,6 @@ class Habit < ApplicationRecord
       weekdays.each { |weekday| @filtered_dates << date if weekday == date.wday }
     end
     @filtered_dates
-  end
-
-  def favourite
-    self.favourite = true
   end
 
   def calculate_completed

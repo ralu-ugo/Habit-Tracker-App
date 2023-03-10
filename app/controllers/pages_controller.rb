@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @fav_habits = Habit.where(user_id: current_user, favourite: true)
     @habits = Habit.where(user_id: current_user)
   end
 

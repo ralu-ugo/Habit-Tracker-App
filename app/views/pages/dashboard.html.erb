@@ -11,6 +11,7 @@
       </div>
     </div>
   </div>
+
   <div class="display">
     <h1 >Favourite habits</h1>
     <ul>
@@ -23,4 +24,16 @@
     </ul>
   </div>
   <%= render "shared/navbar"%>
+
+
+
+<% @fav_habits.each do |habit| %>
+ <div class = "dashboard-card" data-controller="favourite" data-action="click->favourite#colorStar">
+    <%= render "shared/star", habit: habit%>
+  <div class = "habit-name">
+    <%= habit.title %>
+  </div>
+</div>
+<% end %>
+
 </div>

@@ -1,6 +1,6 @@
 class HabitSlot < ApplicationRecord
   belongs_to :habit
-  has_one :user, through: :habit
+  has_many :users, through: :habit
 
   def complete
     self.completed = true
