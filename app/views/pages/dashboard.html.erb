@@ -6,17 +6,22 @@
 
     <div class="info-text info-section">
       <p><%= Date.today %></p>
+      <%# <p>Hello <%= User.nickname %>
       <p>Everything is easy if you break it down into small steps...</p>
     </div>
 
     <div class="habit-container">
       <h2 class="info-text">Favourite habits</h2>
       <% @habits.each_with_index do |habit, index| %>
-        <div class="habit-card-dashboard" data-controller="favourite" data-action="click->favourite#colorStar">
-          <% if index < 3 %>
-          <%= render "shared/star", habit: habit %>
-          <h2><%= habit.title %></h2>
-          <p><%= habit.description %></p>
+        <%= link_to habit_path(habit) do %>
+          <div class="habit-card-dashboard" data-controller="favourite" data-action="click->favourite#colorStar">
+            <% if index < 3 %>
+            <%= render "shared/star", habit: habit %>
+            <div class="desc">
+              <h2><%= habit.title %></h2>
+              <p><%= habit.description %></p>
+            </div>
+            <% end %>
           <% end %>
         </div>
       <% end %>

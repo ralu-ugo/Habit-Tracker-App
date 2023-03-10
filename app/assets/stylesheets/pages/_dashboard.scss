@@ -11,7 +11,7 @@
   position: relative;
   background: #F6F7F8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
+  border-radius: 25px;
   padding: 5px;
   margin: 10px;
 }
@@ -45,9 +45,12 @@
 .info-text {
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  font-weight: 600;
+  text-shadow: 0px 1px 6px rgba(255, 255, 255, 0.288);
 }
 
 .info-section {
+  margin-top: 50px;
   padding: 10px;
 }
 
@@ -58,3 +61,13 @@
   margin-top: -40px;
 }
 
+.desc h2 {
+  font-family: $headers-font;
+  font-weight: 400;
+  color: black;
+}
+
+.desc {
+  color: black;
+  padding-left: 5%;
+}
