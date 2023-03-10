@@ -10,11 +10,14 @@
 
 .footer-title {
   padding-left: 8px;
-  font-size: calc(1.375rem + 1.5vw);
+  font-size: calc(2rem + 1.5vw);
   padding: 8px;
+  font-family: $headers-font;
+  font-weight: 600;
+  color: #F6F7F8;
 }
 
 .footer-icon {
   color: #F6F7F8;
-  padding: 8px;
+  padding: 20px;
 }

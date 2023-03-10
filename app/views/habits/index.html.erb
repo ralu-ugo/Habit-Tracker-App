@@ -8,17 +8,16 @@
       placeholder: "   search"
     %>
   <% end %>
+  <div class="habits-display">
+    <% @habits.each do |habit| %>
+      <%= link_to habit_path(habit) do %>
+        <div class="habit-card">
+          <h6><%= habit.title %></h6>
+          <p><%= habit.description %></p>
+        </div>
+      <% end %>
+    <% end %>
 
-<%# Info about habits, link to habit show page of each one %>
-<h1> Your Habits </h1>
-
-<% @habits.each do |habit| %>
-  <div class="card" style="background: <%= habit.colour %>;">
-    <p>Title: <%= habit.title %>
-    <p>Description: <%= habit.description %>
-    <%= render "shared/star", habit: habit %>
-    <p class="btn btn-primary"><%= link_to "habit", habit_path(habit) %></p>
-  <% end %>
   </div>
-</div>
 <%= render "shared/navbar" %>
+</div>
