@@ -1,12 +1,17 @@
 class HabitsController < ApplicationController
-  before_action :find_habit, only: %i[show edit update destroy]
+  before_action :find_habit, only: %i[show edit update destroy favourite]
 
   def index
-    @habits = Habit.where(user_id: current_user)
+    if params[:query].present?
+      @habits = Habit.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @habits = Habit.where(user_id: current_user)
+    end
   end
 
   def show
     @habit = Habit.find(params[:id])
+    @habit_completion_rate = @habit.calculate_habit_completion_rate_for_habit(params[:id])
   end
 
   def new
@@ -18,38 +23,17 @@ class HabitsController < ApplicationController
     @habit.user_id = current_user.id
     if @habit.repeat == true
       if @habit.everyday == true
-        @habit.monday = true
-        @habit.tuesday = true
-        @habit.wednesday = true
-        @habit.thursday = true
-        @habit.friday = true
-        @habit.saturday = true
-        @habit.sunday = true
+        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = true
       end
     elsif @habit.repeat == false
       if @habit.monday == true
-        @habit.tuesday = false
-        @habit.wednesday = false
-        @habit.thursday = false
-        @habit.friday = false
-        @habit.saturday = false
-        @habit.sunday = false
+        @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
       end
       if @habit.tuesday == true
-        @habit.monday = false
-        @habit.wednesday = false
-        @habit.thursday = false
-        @habit.friday = false
-        @habit.saturday = false
-        @habit.sunday = false
+        @habit.monday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
       end
       if @habit.wednesday == true
-        @habit.monday = false
-        @habit.tuesday = false
-        @habit.thursday = false
-        @habit.friday = false
-        @habit.saturday = false
-        @habit.sunday = false
+        @habit.monday && @habit.tuesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
       end
       if @habit.thursday == true
         @habit.monday && @habit.tuesday && @habit.wednesday && @habit.friday && @habit.saturday && @habit.sunday = false
@@ -78,6 +62,14 @@ class HabitsController < ApplicationController
   def update
     if @habit.update(habit_params)
       redirect_to habit_path(@habit)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def favourite
+    if @habit.set_favourite(params[:favourite]).save
+      redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
     end

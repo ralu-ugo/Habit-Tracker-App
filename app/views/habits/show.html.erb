@@ -1,5 +1,13 @@
 <%# Info about habit %>
-  <div> <%= @habit.description %></div>
+  <%= current_user.calculate_habit_completion_rate %>
+
+<div data-controller="circularbar">
+  <div class="pie" data-pie='{ "percent": <%=  @habit_completion_rate %> }' >
+
+
+  </div>
+</div>
+
 
 <%# Button to edit this habit %>
   <div class="btn btn-primary"> <%= link_to "edit habit", edit_habit_path %></div>
@@ -8,7 +16,7 @@
 <%# Go back to index page %>
   <div class="btn btn-primary"> <%= link_to "back", habits_path %></div>
 
+<%= render "shared/navbar" %>
 
-  
 <%# button to favourite this habit
  <div class="btn btn-primary">Favourite</div> %>

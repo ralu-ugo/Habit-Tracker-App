@@ -1,17 +1,17 @@
 .navbar {
-  height: 70px;
-  background-color: whitesmoke;
-  position: fixed;
+  background-color: #1c1c1c;
   width: 100%;
-  bottom: 0;
-}
-
-.navbar {
+  margin-bottom: 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
-.navbar-icon {
-  color: black;
+.navbar a {
+  padding-bottom: 8px;
+  color: #F6F7F8;
 }

@@ -4,7 +4,11 @@ class Habit < ApplicationRecord
   after_create :create_habit_slots
   after_update :update_habit_slots
 
-  private
+  def set_favourite(favourite)
+    self.favourite = favourite
+
+    self
+  end
 
   def weekdays
     @weekdays = []
@@ -39,13 +43,19 @@ class Habit < ApplicationRecord
     @filtered_dates
   end
 
-  def favourite
-    self.favourite = true
-  end
-
   def calculate_completed
     total_habitslots = HabitSlot.where(habit_id: id, user_id: current_user)
     completed_habitslots = HabitSlot.where(habit_id: id, user_id: current_user, completed: true)
     @habitslot_progress = completed_habitslots / total_habitslots
+  end
+
+  def calculate_habit_completion_rate_for_habit(id)
+    habit = Habit.find(id)
+    total_habitslots_count = habit.habit_slots.count
+    completed_habitslots_count = 0
+    habit.habit_slots.each do |habitslot|
+        completed_habitslots_count += 1 if habitslot.completed == true
+    end
+    (completed_habitslots_count / total_habitslots_count) * 100
   end
 end

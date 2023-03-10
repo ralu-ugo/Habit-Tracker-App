@@ -5,12 +5,11 @@ export default class extends Controller {
 
   connect() {
   console.log("hello")
+  console.log(this.targets)
   }
 
-  toggleIcon() {
-    this.targets.forEach((target) => {
-      const clickedTarget = target.currentTarget;
-      clickedTarget.classList.toggle("icon-active")
-    });
-  }
+  toggleIcon(event) {
+    event.currentTarget.classList.toggle("icon-active")
+  };
+
 }

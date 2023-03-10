@@ -14,19 +14,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "calendars", force: :cascade do |t|
-    t.date "calendar_start_date"
-    t.date "calendar_end_date"
-    t.string "calendar_type"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_calendars_on_user_id"
-  end
-
   create_table "habit_slots", force: :cascade do |t|
     t.bigint "habit_id", null: false
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.date "start_time"
     t.date "end_time"
     t.datetime "created_at", null: false
@@ -52,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "everyday"
-
     t.string "colour"
     t.index ["user_id"], name: "index_habits_on_user_id"
   end
@@ -69,7 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140523) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "calendars", "users"
   add_foreign_key "habit_slots", "habits"
   add_foreign_key "habits", "users"
 end
