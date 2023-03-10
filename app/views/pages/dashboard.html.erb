@@ -11,7 +11,7 @@
 
     <div class="habit-container">
       <h2 class="info-text">Favourite habits</h2>
-      <% @habits.each_with_index do |habit, index| %>
+      <% @fav_habits.each_with_index do |habit, index| %>
         <% if index < 3 %>
           <div class="habit-card-dashboard" data-controller="favourite" data-action="click->favourite#colorStar">
           <%= render "shared/star", habit: habit %>
