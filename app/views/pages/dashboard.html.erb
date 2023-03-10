@@ -1,43 +1,28 @@
 <div class="container-dashboard">
-  <div class="backgr">
-    <%= render "shared/footer" %>
-    <%= render "shared/navbar"%>
+    <div>
+      <%= render "shared/footer" %>
+      <%# <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+    <div>
 
-    <%# <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-
-
-    <div class="banner">
-      <div class="content">
-        <h1>Welcome</h1>
-        <p><%= Date.today%></p>
-        <p>Nothing is particulary hard if you break it down into small jobs...</p>
-      </div>
+    <div class="info-text info-section">
+      <p><%= Date.today %></p>
+      <p>Everything is easy if you break it down into small steps...</p>
     </div>
-  </div>
 
-  <div class="display">
-    <h1 >Favourite habits</h1>
-    <ul>
-      <% @habits.each do |habit|  %>
-      <li class="habit-card">
-        <h2><%= habit.title %></h2>
-        <p><%= habit.description %></p>
-      </li>
+    <div class="habit-container">
+      <h2 class="info-text">Favourite habits</h2>
+      <% @habits.each_with_index do |habit, index| %>
+        <div class="habit-card-dashboard" data-controller="favourite" data-action="click->favourite#colorStar">
+          <% if index < 3 %>
+          <%= render "shared/star", habit: habit %>
+          <h2><%= habit.title %></h2>
+          <p><%= habit.description %></p>
+          <% end %>
+        </div>
       <% end %>
-    </ul>
-  </div>
-  <%= render "shared/navbar"%>
-
-
-
-<% @fav_habits.each do |habit| %>
- <div class = "dashboard-card" data-controller="favourite" data-action="click->favourite#colorStar">
-    <%= render "shared/star", habit: habit%>
-  <div class = "habit-name">
-    <%= habit.title %>
-  </div>
-</div>
-<% end %>
-
-
+  `` </div>
+    `<div class="button-container">
+      <p class="btn-ghost">See all your habits</p>
+     </div>
+    <%= render "shared/navbar" %>`
 </div>
