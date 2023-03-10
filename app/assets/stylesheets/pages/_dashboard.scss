@@ -1,14 +1,25 @@
-.container-dashboard {
-  background-color: white;
-  height: 852px;
-}
-
 .backgr {
   background-image: url("https://i.pinimg.com/564x/d3/a2/12/d3a212d452fba1879c40c4ccdf657d29.jpg");
   height: 300px;
-  border-bottom-right-radius: 50%;
   background-position: center;
 }
 
+ul{
+  list-style: none;
+}
 
+.habit-card{
+  display: inline-block;
+  width: 300px;
+  background-color: rgba(0, 255, 255, 0.586);
+  border-radius: 12px;
+  padding: 8px;
+  margin-top: 16px;
+  transition: 1s;
 
+}
+
+.habit-card:hover{
+  transition: 1s;
+  background-color: aqua;
+}
