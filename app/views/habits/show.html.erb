@@ -1,6 +1,13 @@
 <%# Info about habit %>
   <%= current_user.calculate_habit_completion_rate %>
 
+<div data-controller="circularbar">
+  <div class="pie" data-pie='{ "percent": <%=  @habit_completion_rate %> }' >
+
+
+  </div>
+</div>
+
 
 <%# Button to edit this habit %>
   <div class="btn btn-primary"> <%= link_to "edit habit", edit_habit_path %></div>
