@@ -19,7 +19,7 @@ count = 0
 2.times do
   user = User.create(email: Faker::Internet.email, password: "123456")
 
-  2.times do
+  3.times do
     Habit.create(
       title: Faker::Hobby.activity,
       description: Faker::Hobby.activity,

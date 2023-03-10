@@ -4,8 +4,8 @@
     <h1 class="cal">Calendar</h1>
     <div class="simple-calendar">
       <div class="date-box">
-        <%= month_calendar(events: @habitslots) do |date, habitslots| %>
-        <%= date %>
+        <%= week_calendar(events: @habitslots) do |date, habitslots| %>
+        <%= date.day %>
 
         <% habitslots.each do |habitslot| %>
           <div>
@@ -17,5 +17,5 @@
     </div>
 
     <%# button to link to todays schedule %>
-    <div class="btn btn-primary"><%= link_to "look at todays schedule", schedule_today_path %></div>
+    <div class="button-container"><%= link_to "look at todays schedule", schedule_today_path %></div>
 </div>
