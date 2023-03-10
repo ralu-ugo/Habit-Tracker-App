@@ -1,5 +1,5 @@
 <div data-controller="circularbar">
-  <div class="pie" data-pie='{ "percent": 80 }' >
+  <div class="pie" data-pie='{ "percent": <%= current_user.calculate_habit_completion_rate %> }' >
 
 
   </div>
