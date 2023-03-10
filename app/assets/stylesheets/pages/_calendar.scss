@@ -1,6 +1,9 @@
 /* Styles for the calendar container */
 .bg{
-  background-image: url("../../images/image.png") fill;
+  display: inline-block;
+  background-image: url("../../images/image.png")repeat center center fixed;
+  background-size: cover;
+  background-position: fixed;
   padding: 16px;
 }
 
@@ -8,9 +11,13 @@
   color: white;
 }
 
-.simple-calendar a{
+.date-box{
+  // background-color: blue;
+}
+
+.simple-calendar a {
   text-decoration: none;
-  color: #333;
+  color: black;
 }
 .simple-calendar {
   background-color: #cccccc91;
@@ -114,6 +121,10 @@
   @media only screen and (max-width: 400px) {
     padding: 1rem;
 
+    body {
+      background-size: 100% 100%;
+    }
+
     /* Styles for the table header */
     .table > thead > tr > th {
       font-size: 0.8rem;
@@ -138,4 +149,6 @@
       }
     }
   }
+
+
 }
