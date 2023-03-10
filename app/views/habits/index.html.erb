@@ -1,3 +1,20 @@
+
+<div class="habits-index">
+  <%= render "shared/footer" %>
+  <%= form_with url: habits_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search",
+      placeholder: "   search"
+    %>
+  <% end %>
+  <div class="habits-display">
+    <% @habits.each do |habit| %>
+      <%= link_to habit_path(habit) do %>
+        <div class="habit-card">
+          <p><%= habit.title %>
+          <p><%= habit.description %>
+        </div>
 <%# Info about habits, link to habit show page of each one %>
 <h1> Your Habits </h1>
 
@@ -11,10 +28,8 @@
       <% habit.habit_slots.each do |habitslot| %>
         <li> <%= habitslot.start_time %>
       <% end %>
-    </ul>
+
+    <% end %>
   </div>
-
- <% end %>
-
-<%# button to create a new habit %>
- <div class="btn btn-primary"> <%= link_to "create habit", new_habit_path %></div>
+</div>
+<%= render "shared/navbar" %>
