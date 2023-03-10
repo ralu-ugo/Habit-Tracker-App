@@ -11,8 +11,13 @@
   text-align: center;
   padding-top: 36px;
   margin-top: 50px;
+  text-decoration: none;
+  box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.379);
 }
-.habit-card h6 {
+.habit-card {
+  h6 {
   font-family: $headers-font;
-  font-weight: 400;
+  font-weight: 600;
+  font-size: large;
+}
 }
