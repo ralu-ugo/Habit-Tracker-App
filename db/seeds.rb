@@ -5,10 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-<<<<<<< HEAD
+
 # Calendar.destroy_all
-=======
->>>>>>> 4ad88e83af144cdce1dc061050913a6380f8c262
+
 HabitSlot.destroy_all
 Habit.destroy_all
 User.destroy_all

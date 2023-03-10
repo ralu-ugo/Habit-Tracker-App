@@ -1,24 +1,22 @@
-<%= render "shared/footer" %>
-  <div class="habits-index">
-    <%= form_with url: habits_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "search",
-        placeholder: "   search"
-      %>
-    <% end %>
-
-    <h1 class="index-title"> Your Habits </h1>
-    <div class="habits-display">
-      <% @habits.each do |habit| %>
-        <%= link_to habit_path(habit) do %>
-          <div class="habit-card">
-            <%# class="card" style="background: <%= habit.colour %>
-            <p>Habit: <%= habit.title %>
-            <p>Description: <%= habit.description %>
-          </div>
-        <% end %>
-
+<div class="habits-index">
+  <%= render "shared/footer" %>
+  <%= form_with url: habits_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search",
+      placeholder: "   search"
+    %>
+  <% end %>
+  <div class="habits-display">
+    <% @habits.each do |habit| %>
+      <%= link_to habit_path(habit) do %>
+        <div class="habit-card">
+          <p><%= habit.title %>
+          <p><%= habit.description %>
+        </div>
       <% end %>
-    </div>
+
+    <% end %>
   </div>
+</div>
+<%= render "shared/navbar" %>
