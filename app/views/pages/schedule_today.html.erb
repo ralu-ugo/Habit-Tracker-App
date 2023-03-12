@@ -9,3 +9,13 @@
 
 <%# button to link to broader calendar %>
 <div class="btn btn-primary"><%= link_to "back to calendar", calendar_path %></div>
+
+
+<ul class="fav-habit-display">
+    <% @habitslots.each do |habitslot| %>
+      <li class="fav-habit-card" data-controller="completed" data-completed-target="habitslot" data-completed="<%= habitslot.completed %>" data-id="<%= habitslot.id %>" data-habit-id="<%= habitslot.habit_id %>">
+        <p><%= habitslot.habit.title %></p><hr>
+        <p><%= habitslot.habit.description %></p>
+        <div data-action="click->completed#completed"><%= render "shared/check" %></div>
+      </li>
+    <% end %>

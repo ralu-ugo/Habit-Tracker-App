@@ -4,11 +4,14 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import CircularbarController from "./circularbar_controller"
 application.register("circularbar", CircularbarController)
 
 import DateselectController from "./dateselect_controller"
 application.register("dateselect", DateselectController)
+
+import FavouriteController from "./favourite_controller"
+application.register("favourite", FavouriteController)
+
+import CompletedController from "./completed_controller"
+application.register("completed", CompletedController)
