@@ -26,9 +26,10 @@
     <h4>Your favourited habits</h4>
     <ul class="fav-habit-display">
       <% @habits.each do |habit| %>
-      <li class="fav-habit-card">
+      <li class="fav-habit-card" data-controller="favourite" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
         <p><%= habit.title %></p><hr>
         <p><%= habit.description %></p>
+        <div data-action="click->favourite#favourite"><%= render "shared/star", habit: habit %></div>
       </li>
       <% end %>
     </ul>

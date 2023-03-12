@@ -5,9 +5,7 @@ class Habit < ApplicationRecord
   after_update :update_habit_slots
 
   def set_favourite(favourite)
-    self.favourite = favourite
-
-    self
+    self.favourite = favourite.save
   end
 
   def weekdays
