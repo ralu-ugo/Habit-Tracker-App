@@ -1,0 +1,23 @@
+<div class="simple-calendar" >
+
+  <ul class="table-dd">
+        <% date_range.each_slice(7) do |week| %>
+        <td>
+          <% date_range.slice(0, 7).each do |day| %>
+          <% week.each do |day| %>
+          <li class= "weekday-card">
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <%= t('date.day_names')[day.wday] %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          </li>
+          <% end %>
+          <% end %>
+        </td>
+      <% end %>
+  </ul>
+</div>

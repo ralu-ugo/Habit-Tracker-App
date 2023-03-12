@@ -26,6 +26,7 @@ class HabitsController < ApplicationController
         @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = true
       end
     elsif @habit.repeat == false
+      @habit.everyday = false
       if @habit.monday == true
         @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
       end
