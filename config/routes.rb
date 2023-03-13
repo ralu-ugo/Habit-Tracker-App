@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   get "/dashboard", to: "pages#dashboard"
 
   patch '/habits/favourite/:id', to: 'habits#favourite'
-  # patch '/habits/favourite/:id', to: 'habits#favourite'
 
   get "/setting", to: "pages#setting"
 
