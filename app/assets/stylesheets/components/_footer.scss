@@ -5,6 +5,9 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   display: flex;
   justify-content: space-between;
+  a{
+    text-decoration: none;
+  }
 }
 
 .footer-title {
@@ -20,4 +23,5 @@
 .footer-icon {
   color: #F6F7F8;
   padding: 16px;
+  padding-top: 24px;
 }
