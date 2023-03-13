@@ -2,6 +2,12 @@ class HabitsController < ApplicationController
   before_action :find_habit, only: %i[show edit update destroy favourite]
 
   def index
+    @habits = Habit.where(user_id: current_user)
+    @habitslots = []
+    @habits.each do |habit|
+      habit.habit_slots.each do |habitslot|
+        @habitslots << habitslot
+      end
     if params[:query].present?
       @habits = Habit.where("title ILIKE ?", "%#{params[:query]}%")
     else

@@ -6,19 +6,6 @@
     <p><%= Date.today %></p>
     <h1>hello Bobby </h1><hr>
     <br>
-    <div class="calendar">
-      <h4>Your weekly schedule</h4>
-      <br>
-
-      <%= week_calendar(events: @habitslots) do |date, habitslots| %>
-        <% @habitslots.each do |habitslot| %>
-        <div>
-          <h6><%= date.strftime("%a") %> <br> <%= date.strftime("%d") %></h6>
-          <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
-        </div>
-        <% end %>
-      <% end %>
-    </div><hr>
     </span><br>
   </div>
   <div class="mid-dash">

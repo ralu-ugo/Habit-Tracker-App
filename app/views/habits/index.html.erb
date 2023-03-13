@@ -8,6 +8,21 @@
       placeholder: "   search"
     %>
   <% end %>
+  <div>
+    <div class="calendar">
+      <h4>Your weekly schedule</h4>
+      <br>
+
+      <%= week_calendar(events: @habitslots) do |date, habitslots| %>
+        <% @habitslots.each do |habitslot| %>
+        <div>
+          <h6><%= date.strftime("%a") %> <br> <%= date.strftime("%d") %></h6>
+          <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
+        </div>
+        <% end %>
+      <% end %>
+    </div><hr>
+  </div>
   <div class="habits-display">
     <% @habits.each do |habit| %>
       <%= link_to habit_path(habit) do %>
