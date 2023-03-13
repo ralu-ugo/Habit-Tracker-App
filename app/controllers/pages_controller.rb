@@ -32,6 +32,7 @@ class PagesController < ApplicationController
   end
 
   def progress_page
+    @habits = Habit.where(user: current_user)
   end
 
   def setting
