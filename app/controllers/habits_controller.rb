@@ -69,11 +69,8 @@ class HabitsController < ApplicationController
   end
 
   def favourite
-    if @habit.set_favourite(params[:favourite]).save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @habit.update(favourite: params[:favourite])
+    render json: @habit
   end
 
   def destroy
@@ -81,7 +78,6 @@ class HabitsController < ApplicationController
     @habit.destroy
     redirect_to habits_path, status: :see_other
   end
-
 
   private
 

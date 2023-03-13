@@ -25,10 +25,15 @@ class HabitSlotsController < ApplicationController
 
   def update
     @habitslot = HabitSlot.find(params[:id])
-    if @habitslot.update(habitslot_params)
-      redirect_to habit_habit_slot_path(@habit, @habitslot)
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @habitslot.update(habitslot_params)
+        format.html { redirect_to habit_habit_slot_path(@habit, @habitslot) }
+        format.json
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 

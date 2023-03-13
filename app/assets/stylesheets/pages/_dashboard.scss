@@ -19,10 +19,11 @@
   background-color: tomato;
   border-radius: 12px;
   transition: 1s;
+  position: relative;
 }
 
 
-.fav-habit-card:hover{
-  transition: 1s;
-  background-color: rgba(255, 99, 71, 0.491);
-}
+// .fav-habit-card:hover{
+//   transition: 1s;
+//   background-color: rgba(255, 99, 71, 0.491);
+// }
