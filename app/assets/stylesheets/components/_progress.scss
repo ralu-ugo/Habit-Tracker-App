@@ -1,8 +1,4 @@
 
-body {
-  background: black;
-}
-
 .circle-progress {
   width: 200px;
   height: 200px;
@@ -26,11 +22,13 @@ body {
 	font-size: 26px;
 }
 
-.h1-progress-page {
+.h2-progress-page {
   color: $font-color;
   padding-left: 20px;
 }
 
 .chart-wrapper {
-  margin: auto 0;
+  margin: auto;
+  height: 300px;
+  width: 300px;
 }
