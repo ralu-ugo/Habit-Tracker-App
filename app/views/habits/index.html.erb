@@ -1,5 +1,4 @@
-
-<div class="habits-index">
+<body class="page">
   <%= render "shared/footer" %>
   <%= form_with url: habits_path, method: :get do %>
     <%= text_field_tag :query,
@@ -8,11 +7,10 @@
       placeholder: "   search"
     %>
   <% end %>
-  <div>
+  <hr>
+  <div class="content">
     <div class="calendar">
-      <h4>Your weekly schedule</h4>
-      <br>
-
+      <h4>View daily schedules</h4>
       <%= week_calendar(events: @habitslots) do |date, habitslots| %>
         <% @habitslots.each do |habitslot| %>
         <div>
@@ -22,17 +20,15 @@
         <% end %>
       <% end %>
     </div><hr>
-  </div>
   <div class="habits-display">
     <% @habits.each do |habit| %>
       <%= link_to habit_path(habit) do %>
         <div class="habit-card">
           <h6><%= habit.title %></h6>
-          <p><%= habit.description %></p>
         </div>
       <% end %>
     <% end %>
-
+  </div>
   </div>
 <%= render "shared/navbar" %>
-</div>
+</body>
