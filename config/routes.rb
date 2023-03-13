@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get "/setting", to: "pages#setting"
 
-  get "/schedule_today", to: "pages#schedule_today", as: "schedule_today"
+  get "/schedule_today/:date", to: "pages#schedule_today", as: "schedule_today"
   get "/schedule", to: "pages#schedule_day_dynamic", as: "schedule_day_dynamic"
   get "/calendar", to: "pages#calendar", as: "calendar"
   get "/progress_page", to: "pages#progress_page", as: "progress_page"
