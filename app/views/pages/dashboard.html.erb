@@ -13,14 +13,8 @@
       <%= week_calendar(events: @habitslots) do |date, habitslots| %>
         <% @habitslots.each do |habitslot| %>
         <div>
-            <h6><%= date.strftime("%a") %>, <%= date.strftime("%d") %></h6>
-          <% if habitslot.habit.title %>
-            <div style="border-radius: 50%; background-color: red; width: 20px">
-              <% link_to habit_path(habitslot.habit) %>
-            </div>
-          <% end %>
-          <%# <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
-          <%# <p>habit</p> %>
+          <h6><%= date.strftime("%a") %> <br> <%= date.strftime("%d") %></h6>
+          <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
         </div>
         <% end %>
       <% end %>

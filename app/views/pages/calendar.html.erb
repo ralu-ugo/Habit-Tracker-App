@@ -1,21 +1,17 @@
-<div class="bg">
+<div class="page">
+  <%= render "shared/footer" %>
+  <br>
     <%# monthly calendar where you're listing all habits for that person as a link to that habits show page %>
 
     <h1 class="cal">Calendar</h1>
-    <div class="simple-calendar">
-      <div class="date-box">
-        <%= week_calendar(events: @habitslots) do |date, habitslots| %>
-        <%= date.day %>
+    <div class="date-box">
+        <%= month_calendar(events: @habitslots) do |date, habitslots| %>
+        <% link_to schedule_today_path(date) do %>
+          <%= date.day %>
+        <% end %>
+        <% end %>
 
-        <% habitslots.each do |habitslot| %>
-          <div>
-            <p><%= link_to habitslot.habit.title, habit_habit_slot_path(habitslot.habit, habitslot) %></p>
-          </div>
-        <% end %>
-        <% end %>
-      </div>
     </div>
 
     <%# button to link to todays schedule %>
-    <div class="button-container"><%= link_to "look at todays schedule", schedule_today_path %></div>
 </div>
