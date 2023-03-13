@@ -16,17 +16,24 @@
   color: white;
 }
 
+.calendar-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .weekday-card{
-  color: white;
+  padding: 8px;
+  color: #333;
+  background-color: whitesmoke;
   list-style: none;
-  width: 100px;
-  height: 120px;
-  border-radius: 50%;
-  border: 1px dashed tomato;
+  width: 60px;
+  height: 70px;
+  border-radius: 20px;
   border-color: linear-gradient(red, blue, green);
   display: flex;
   flex-direction: column;
-  // justify-content: space-evenly;
+  justify-content:flex-start;
   text-align: center;
   line-height: 100px;
 }

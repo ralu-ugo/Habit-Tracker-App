@@ -1,22 +1,27 @@
 <div class="page">
-<%= render "shared/footer" %>
+<%# <%= render "shared/footer" %>
 <br>
   <div class="top-dash">
     <span>
     <p><%= Date.today %></p>
-    <h1>hello Bobby 👋</h1><hr>
+    <h1>hello Bobby </h1><hr>
     <br>
     <div class="calendar">
       <h4>Your weekly schedule</h4>
       <br>
-      <%= week_calendar(events: @habitslots) do |date, habitslots| %>
-        <%# <%= date.day %>
 
-        <% habitslots.each do |habitslot| %>
-          <div >
-          <p>habit</p>
-            <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
-          </div>
+      <%= week_calendar(events: @habitslots) do |date, habitslots| %>
+        <% @habitslots.each do |habitslot| %>
+        <div>
+            <h6><%= date.strftime("%a") %>, <%= date.strftime("%d") %></h6>
+          <% if habitslot.habit.title %>
+            <div style="border-radius: 50%; background-color: red; width: 20px">
+              <% link_to habit_path(habitslot.habit) %>
+            </div>
+          <% end %>
+          <%# <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
+          <%# <p>habit</p> %>
+        </div>
         <% end %>
       <% end %>
     </div><hr>
@@ -28,7 +33,6 @@
       <% @habits.each do |habit| %>
       <li class="fav-habit-card" data-controller="favourite" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
         <p><%= habit.title %></p><hr>
-        <p><%= habit.description %></p>
         <div data-action="click->favourite#favourite"><%= render "shared/star", habit: habit %></div>
       </li>
       <% end %>
