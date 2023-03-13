@@ -1,6 +1,8 @@
 <div data-controller="circularbar">
-  <div class="pie" data-pie='{ "percent": <%= current_user.calculate_habit_completion_rate %> }' >
-
-
+  <%# <div class="pie" data-pie='{ "percent": <%= current_user.calculate_habit_completion_rate } %>
+  <%= pie_chart({"habit completion": 5 }, donut: true) %>
+  <%= column_chart @habits.map { |habit|
+    {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count}
+    }, stacked: true, label: "This is a label" %>
   </div>
 </div>

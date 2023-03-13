@@ -2,8 +2,12 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+import "chartkick/chart.js"
 
 // require moment
 // require fullcalendar
 
 // $('#calendar').fullCalendar({});
+
+//= require chartkick
+//= require Chart.bundle
