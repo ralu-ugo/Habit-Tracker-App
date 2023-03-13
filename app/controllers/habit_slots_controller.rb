@@ -25,11 +25,11 @@ class HabitSlotsController < ApplicationController
 
   def update
     @habitslot = HabitSlot.find(params[:id])
-
     respond_to do |format|
       if @habitslot.update(habitslot_params)
-        format.html { redirect_to habit_habit_slot_path(@habit, @habitslot) }
+        puts request.format
         format.json
+        format.html { redirect_to habit_habit_slot_path(@habit, @habitslot) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json
@@ -50,6 +50,6 @@ class HabitSlotsController < ApplicationController
   end
 
   def habitslot_params
-    params.require(:habit_slot).permit(:start_time)
+    params.require(:habit_slot).permit(:start_time, :completed)
   end
 end

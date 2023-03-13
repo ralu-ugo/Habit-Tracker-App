@@ -6,13 +6,8 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "jquery.minicolors";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-@media only screen and (max-width: 767px) {
-  body {
-    background-size: 100% 100%;
-  }
-}

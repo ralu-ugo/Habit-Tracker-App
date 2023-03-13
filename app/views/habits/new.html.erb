@@ -22,7 +22,13 @@
         <%= f.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon" } %>
         <%= f.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon" } %>
       </div>
-      <%# <%= f.input :colour, collection: ['red', 'green', 'blue'] %>
+        <%= f.input :color, as: :minicolors %>
+      
+
+
+
+
+
       <%= f.submit "Add" %>
       <% end %>
   </div>
