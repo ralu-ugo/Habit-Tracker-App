@@ -4,6 +4,12 @@ import "./controllers"
 import "bootstrap"
 import "chartkick/chart.js"
 
+// import "jquery"
+// import "jquery.minicolors"
+// import "jquery.minicolors.simple_form";
+import "chartkick/chart.js"
+
+
 // require moment
 // require fullcalendar
 

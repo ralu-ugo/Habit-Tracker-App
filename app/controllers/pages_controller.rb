@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
 
   def schedule_today
-    @date = Date.today
+    @date = params[:date]
     @habitslots = HabitSlot.where(start_time: @date)
   end
 

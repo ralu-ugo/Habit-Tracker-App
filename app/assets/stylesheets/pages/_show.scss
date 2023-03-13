@@ -1,61 +1,104 @@
 .container-show {
-  width: 100%;
+  background-color: black;
   height: 100%;
-  border-radius: 2rem;
-  padding: 1rem;
-  background-image: url("image3.png");
-  background-size: cover;
-
+   h3 {
+    color: whitesmoke;
+    padding-top: 16px;
+    padding-left: 46px;
   }
+}
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .habit-show {
+    padding: 16px;
+  }
+  .back-button {
+    text-decoration: none;
+    text-shadow: rgba(0, 0, 0, 0.135);
   }
 
   .habit-card-show {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: black;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    justify-content: center;
-    background-color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin: 2rem;
-    position: relative;
-  }
-
-  .progresstext {
+    background: linear-gradient(#e66465, #9198e5);
+    border-radius: 16px;
+    margin-top: 40px;
+    height: 200px;
     color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    margin: 0.5rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   }
 
-  .button-container-show {
+  .habit-card-details {
+    text-align: center;
+    padding: 24px;
+    text-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  .starr {
+    text-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding-left: 8px;
+    padding-top: 8px;
+  }
+
+  .complete-circle {
+    padding-top: 36px;
+    padding-left: 94px;
+  }
+
+  .destroy-edit-buttons {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    padding: 1rem;
+    justify-content: end;
   }
 
-  .button-position {
-    position: absolute;
-    left: 0.5rem;
-    top: 125px;
+  .delete-button {
+    padding-left: 8px;
+    padding-right: 16px;
   }
+  // .content {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 
-  .position-star-show {
-    position: absolute;
-    left: -199px;
-    padding: 0px;
-    top: -5px;
-  }
+  // .habit-card-show {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   flex-direction: column;
+  //   color: black;
+  //   display: flex;
+  //   align-items: center;
+  //   padding: 1rem;
+  //   justify-content: center;
+  //   background-color: white;
+  //   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  //   border-radius: 8px;
+  //   padding: 1.5rem;
+  //   margin: 2rem;
+  //   position: relative;
+  // }
+
+  // .progresstext {
+  //   color: white;
+  //   text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  //   margin: 0.5rem;
+  // }
+
+  // .button-container-show {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-between;
+  //   margin-top: 0.5rem;
+  //   padding: 1rem;
+  // }
+
+  // .button-position {
+  //   position: absolute;
+  //   left: 0.5rem;
+  //   top: 125px;
+  // }
+
+  // .position-star-show {
+  //   position: absolute;
+  //   left: -199px;
+  //   padding: 0px;
+  //   top: -5px;
+  // }

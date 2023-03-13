@@ -1,3 +1,5 @@
+
+// Week calendar
 .table-dd{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -5,6 +7,9 @@
   overflow-x: scroll;
   color: white;
   grid-column-gap: 24px;
+  a{
+    text-decoration: none;
+  }
 }
 
 .table-dd::-webkit-scrollbar{
@@ -16,24 +21,128 @@
   color: white;
 }
 
-.calendar-heading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+// .calendar-heading {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+// }
 
 .weekday-card{
   padding: 8px;
-  color: #333;
-  background-color: whitesmoke;
+  box-shadow: 1px 1px 4px black;
+  color: whitesmoke ;
+  background-color: transparent;
+  // background-image: linear-gradient(100deg,whitesmoke, beige);
   list-style: none;
   width: 60px;
-  height: 70px;
-  border-radius: 20px;
-  border-color: linear-gradient(red, blue, green);
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid tomato;
   display: flex;
   flex-direction: column;
   justify-content:flex-start;
   text-align: center;
   line-height: 100px;
+
+}
+
+
+// Month calendar
+
+.simple-calendar {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .calendar-heading {
+    background-color: #1c1c1e;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.2rem;
+
+    a {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  table {
+    background-color: #1c1c1e;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 5px; /* add spacing between cells */
+    width: 100%;
+
+    thead {
+      th {
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #2c2c2e;
+      }
+
+      @media only screen and (max-width: 767px) {
+        th {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+
+    tbody {
+      tr {
+        td {
+          font-size: 0.9rem;
+          padding: 10px;
+          text-align: center;
+          border-bottom: 1px solid #2c2c2e;
+          background-color: #1c1c1e;
+          color: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          @media only screen and (max-width: 767px) {
+            padding: 5px;
+            font-size: 0.8rem;
+          }
+
+          &.today {
+            background-color: rgb(245, 245, 245);
+            color: #333;
+
+
+
+              &.other-month {
+                color: #75757a;
+              }
+
+              a {
+                color: #333;
+                text-decoration: none;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+}
+
+.date-box a{
+  text-decoration: none;
+  color: white;
 }
