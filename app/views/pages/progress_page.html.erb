@@ -1,8 +1,15 @@
-<div data-controller="circularbar">
-  <%# <div class="pie" data-pie='{ "percent": <%= current_user.calculate_habit_completion_rate } %>
-  <%= pie_chart({"habit completion": 5 }, donut: true) %>
-  <%= column_chart @habits.map { |habit|
-    {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count}
-    }, stacked: true, label: "This is a label" %>
+
+<%= render "shared/footer" %>
+
+  <h1 class = "d-flex h1-progress-page my-5" >Your Overall Habit Progress</h1>
+
+  <div class="d-flex justify-content-center my-5">
+    <div data-controller="progress-circle" data-progress-circle-percent-value="<%= current_user.calculate_habit_completion_rate %>"></div>
+
+  <div class="chart-wrapper">
+    <%= column_chart @habits.map { |habit|
+      {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count}
+      }, stacked: true %>
   </div>
+
 </div>
