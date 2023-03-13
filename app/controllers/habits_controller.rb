@@ -5,8 +5,15 @@ class HabitsController < ApplicationController
     # if params[:query].present?
     #   @habits = Habit.where("title ILIKE ?", "%#{params[:query]}%")
     # else
-      @habits = Habit.where(user_id: current_user)
+    @habits = Habit.where(user_id: current_user)
     # end
+    @habits = Habit.where(user_id: current_user)
+    @habitslots = []
+    @habits.each do |habit|
+      habit.habit_slots.each do |habitslot|
+        @habitslots << habitslot
+      end
+    end
   end
 
   def show
