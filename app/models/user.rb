@@ -19,6 +19,6 @@ class User < ApplicationRecord
         completed_habitslots_count += 1 if habitslot.completed == true
       end
     end
-    (completed_habitslots_count / total_habitslots_count) * 100
+    (completed_habitslots_count / total_habitslots_count) * 100 unless total_habitslots_count == 0
   end
 end
