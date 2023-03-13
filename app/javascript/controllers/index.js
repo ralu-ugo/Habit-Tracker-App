@@ -7,11 +7,17 @@ import { application } from "./application"
 import CircularbarController from "./circularbar_controller"
 application.register("circularbar", CircularbarController)
 
+import CompletedController from "./completed_controller"
+application.register("completed", CompletedController)
+
 import DateselectController from "./dateselect_controller"
 application.register("dateselect", DateselectController)
 
 import FavouriteController from "./favourite_controller"
 application.register("favourite", FavouriteController)
 
-import CompletedController from "./completed_controller"
-application.register("completed", CompletedController)
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import ProgressCircleController from "./progress_circle_controller"
+application.register("progress-circle", ProgressCircleController)
