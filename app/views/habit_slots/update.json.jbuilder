@@ -1,6 +1,5 @@
-if @review.persisted?
-  json.form render(partial: "reviews/form", formats: :html, locals: {restaurant: @restaurant, review: Review.new})
-  json.inserted_item render(partial: "restaurants/review", formats: :html, locals: {review: @review})
+if @habitslot.persisted?
+  json.card "<h1>Result</h1>"
 else
-  json.form render(partial: "reviews/form", formats: :html, locals: {restaurant: @restaurant, review: @review})
+  json.card "failure"
 end
