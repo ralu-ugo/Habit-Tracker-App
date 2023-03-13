@@ -2,29 +2,19 @@
     <%= render "shared/footer" %>
   <div class="container form-container ">
     <h1 class = "new-habit-title">New Habit...</h1>
-    <%= simple_form_for(@habit) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :title, label: false, placeholder: "Title" %>
-        <%= f.input :description, label: false, placeholder: "Description" %>
-        <div class="date_select">
-          <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
-          <%= f.input :end_date, html5:true, placeholder: "End Date"%>
+    <div data-controller="form-toggler">
+      <%= simple_form_for([@habit], data: {form_toggler_target: "form"}) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :title, label: false, placeholder: "Title" %>
+          <%= f.input :description, label: false, placeholder: "Description" %>
+          <div class="date_select">
+            <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
+            <%= f.input :end_date, html5:true, placeholder: "End Date"%>
+          </div>
         </div>
-      </div>
-      <%= f.input :everyday, as: :boolean, input_html: { class: "toggle"} %>
-      <%= f.input :repeat, as: :boolean, input_html: { class: "repeat" }, data: { target: "form-toggler.form" }, data: { action: "change->form-toggler#toggleForm" } %>
-      <div class="icon-line" data-controller="dateselect">
-        <%= f.input :monday, as: :boolean, label: 'Monday', input_html: { class: "icon" } %>
-        <%= f.input :tuesday, as: :boolean, label: 'Tuesday', input_html: { class: "icon" } %>
-        <%= f.input :wednesday, as: :boolean, label: 'Wednesday', input_html: { class: "icon" } %>
-        <%= f.input :thursday, as: :boolean, label: 'Thursday', input_html: { class: "icon" } %>
-        <%= f.input :friday, as: :boolean, label: 'Friday', input_html: { class: "icon" } %>
-        <%= f.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon" } %>
-        <%= f.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon" } %>
-      </div>
-      <%# <%= f.input :colour, collection: ['red', 'green', 'blue'] %>
-      
-      <%= f.submit "Add" %>
-      <% end %>
+        <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, input_html: { class: "repeat" } %></div>
+        <%= f.submit "Add" %>
+        <% end %>
+    </div>
   </div>
 </div>

@@ -25,18 +25,8 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
-
-        console.log(this.starTarget)
-        console.log(data.star)
-        console.log(data.card)
-
-
         this.habitTarget.innerHTML = data.card
         this.habitTarget.outerHTML = data.card
-
-
-
       })
   };
 }

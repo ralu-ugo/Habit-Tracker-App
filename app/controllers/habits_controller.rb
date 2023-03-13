@@ -16,6 +16,11 @@ class HabitsController < ApplicationController
 
   def new
     @habit = Habit.new
+    # respond_to do |format|
+    #   # puts request.format
+    #   format.json
+    #   format.html
+    # end
   end
 
   def create
