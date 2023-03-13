@@ -11,6 +11,10 @@ gem "simple_calendar", "~> 2.4"
 
 gem 'spectrum', '~> 0.0.1'
 
+gem "chartkick"
+
+gem "groupdate"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
