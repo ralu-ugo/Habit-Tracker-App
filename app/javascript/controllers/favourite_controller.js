@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["habit"]
+  static targets = ["habit", "star"]
 
   connect() {
   console.log("hello")
@@ -14,11 +14,9 @@ export default class extends Controller {
     event.currentTarget.classList.toggle("favourite-toggle-colour")
     const id = this.habitTarget.dataset.id
     const favourite = this.habitTarget.dataset.favourite === "true"
-    const data =  { favourite: !favourite };
+    const data = { habit: { favourite: !favourite } };
 
-    console.log(id)
-    console.log(favourite)
-    console.log(data)
+    console.log({data})
 
     fetch(`/habits/favourite/${id}`, {
       method: "PATCH",
@@ -28,6 +26,17 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         console.log(data)
+
+        console.log(this.starTarget)
+        console.log(data.star)
+        console.log(data.card)
+
+
+        this.habitTarget.innerHTML = data.card
+        this.habitTarget.outerHTML = data.card
+
+
+
       })
   };
 }

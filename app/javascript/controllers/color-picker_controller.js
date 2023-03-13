@@ -6,4 +6,8 @@ export default class extends Controller {
   const circle = new CircularProgressBar("pie");
   circle.initial();
   }
+
+
+
+
 }

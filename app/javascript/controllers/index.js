@@ -15,3 +15,6 @@ application.register("favourite", FavouriteController)
 
 import CompletedController from "./completed_controller"
 application.register("completed", CompletedController)
+
+import ColorPickerController from './color-picker_controller'
+application.register('color-picker', ColorPickerController)

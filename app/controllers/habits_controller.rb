@@ -69,8 +69,7 @@ class HabitsController < ApplicationController
   end
 
   def favourite
-    @habit.update(favourite: params[:favourite])
-    render json: @habit
+    @habit.update(favourite_params)
   end
 
   def destroy
@@ -80,6 +79,10 @@ class HabitsController < ApplicationController
   end
 
   private
+
+  def favourite_params
+    params.require(:habit).permit(:favourite)
+  end
 
   def find_habit
     @habit = Habit.find(params[:id])
