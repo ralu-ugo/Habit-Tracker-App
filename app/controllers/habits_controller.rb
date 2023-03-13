@@ -2,11 +2,18 @@ class HabitsController < ApplicationController
   before_action :find_habit, only: %i[show edit update destroy favourite]
 
   def index
-    # if params[:query].present?
-    #   @habits = Habit.where("title ILIKE ?", "%#{params[:query]}%")
-    # else
+    @habits = Habit.where(user_id: current_user)
+    @habitslots = []
+    @habits.each do |habit|
+      habit.habit_slots.each do |habitslot|
+        @habitslots << habitslot
+      end
+    end
+    if params[:query].present?
+      @habits = Habit.where("title ILIKE ?", "%#{params[:query]}%")
+    else
       @habits = Habit.where(user_id: current_user)
-    # end
+    end
   end
 
   def show
@@ -78,7 +85,8 @@ class HabitsController < ApplicationController
   end
 
   def destroy
-    @habitslot = HabitSlot.find(params[:id])
+    # @habitslot = HabitSlot.find(params[:id])
+    @habit = Habit.find(params[:id])
     @habit.destroy
     redirect_to habits_path, status: :see_other
   end

@@ -23,11 +23,11 @@
 <%# </div> %>
 
 
-<div class="simple-calendar">
+<div>
   <div class="calendar-heading" style= "display:flex; justify-content: space-between; text-decoration: none">
-    <%= link_to t('simple_calendar.previous', default: '↞'), calendar.url_for_previous_view %>
-    <%= link_to t('simple_calendar.next', default: '↠'), calendar.url_for_next_view %>
-  </div>
+    <%= link_to t('simple_calendar.previous', default: 'previous'), calendar.url_for_previous_view %>
+    <%= link_to t('simple_calendar.next', default: 'next'), calendar.url_for_next_view %>
+  </div><br>
 
   <div class="table-dd table-striped">
 

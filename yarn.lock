@@ -553,6 +553,11 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+js-circle-progress@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/js-circle-progress/-/js-circle-progress-0.2.4.tgz#6e52b7d38178411eba312574f886490ea4809a99"
+  integrity sha512-WKlRBk8E5wYNVyjTduGdsTFrCB4SrKPP44cTD8d2hwv/6RJZnDIdbfd64L2TLg+dRWDRzO8p0Hs5dPp0M3d09w==
+
 json-parse-even-better-errors@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"

@@ -21,6 +21,11 @@ class PagesController < ApplicationController
     @habitslots = HabitSlot.where(start_time: @date)
   end
 
+  def schedule_day_dynamic
+    @date = Date.today
+    @habitslots = HabitSlot.where(start_time: @date)
+  end
+
   def calendar
     @habits = Habit.where(user_id: current_user)
     @habitslots = []

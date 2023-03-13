@@ -7,6 +7,9 @@ import { application } from "./application"
 import CircularbarController from "./circularbar_controller"
 application.register("circularbar", CircularbarController)
 
+import CompletedController from "./completed_controller"
+application.register("completed", CompletedController)
+
 import DateselectController from "./dateselect_controller"
 application.register("dateselect", DateselectController)
 
@@ -21,3 +24,4 @@ application.register('color-picker', ColorPickerController)
 
 import FormTogglerController from './form_toggler'
 application.register('form-toggler', FormTogglerController)
+
