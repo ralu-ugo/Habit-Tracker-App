@@ -8,6 +8,7 @@ class HabitsController < ApplicationController
       habit.habit_slots.each do |habitslot|
         @habitslots << habitslot
       end
+    end
     if params[:query].present?
       @habits = Habit.where("title ILIKE ?", "%#{params[:query]}%")
     else

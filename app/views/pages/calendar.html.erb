@@ -1,6 +1,7 @@
-<div class="page">
-  <%= render "shared/footer" %>
-  <br>
+<body class="page">
+<%= render "shared/footer" %>
+<div class="content">
+    <br>
     <%# monthly calendar where you're listing all habits for that person as a link to that habits show page %>
 
     <h1 class="cal">Calendar</h1>
@@ -12,6 +13,8 @@
         <% end %>
 
     </div>
+    <%= render "shared/navbar" %>
 
     <%# button to link to todays schedule %>
 </div>
+</body>
