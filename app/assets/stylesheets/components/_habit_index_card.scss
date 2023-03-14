@@ -9,15 +9,17 @@
   color: black;
   padding: 16px;
   text-align: center;
-  padding-top: 36px;
-  margin-top: 50px;
   text-decoration: none;
   box-shadow: 0px 1px 6px rgba(255, 255, 255, 0.379);
-}
-.habit-card {
+
+
   h6 {
-  font-family: $headers-font;
-  font-weight: 600;
-  font-size: large;
-}
+    padding-top: 16px;
+    font-family: $headers-font;
+    font-weight: 600;
+    font-size: large;
+  }
+  .star-index {
+    padding-left: 94px;
+  }
 }

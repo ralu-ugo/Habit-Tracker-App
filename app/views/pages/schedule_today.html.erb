@@ -1,3 +1,4 @@
+
 <body class="page">
   <div class="content">
     <h2><%= Date.today %></h2>
@@ -22,6 +23,9 @@
     <ul class="fav-habit-display">
       <% @habitslots.each do |habitslot| %>
         <%= render "habit_card", habitslot: habitslot %>
+        <%# <p class="btn btn-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%>
+        <%# button to delete this particular habitslot %>
+      <%# <p class="btn btn-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% end %>
     </ul>
   <%= render "shared/navbar" %>
