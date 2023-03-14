@@ -1,0 +1,10 @@
+<%= f.input :everyday, as: :boolean, input_html: { class: "toggle"} %>
+<div class="icon-line" data-controller="dateselect">
+  <%= f.input :monday, as: :boolean, label: 'Monday', input_html: { class: "icon" } %>
+  <%= f.input :tuesday, as: :boolean, label: 'Tuesday', input_html: { class: "icon" } %>
+  <%= f.input :wednesday, as: :boolean, label: 'Wednesday', input_html: { class: "icon" } %>
+  <%= f.input :thursday, as: :boolean, label: 'Thursday', input_html: { class: "icon" } %>
+  <%= f.input :friday, as: :boolean, label: 'Friday', input_html: { class: "icon" } %>
+  <%= f.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon" } %>
+  <%= f.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon" } %>
+</div>

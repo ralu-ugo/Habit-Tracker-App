@@ -10,6 +10,7 @@
     "chart.js": "^4.2.1",
     "chartkick": "^5.0.1",
     "circlebars": "^1.0.4",
+    "stimulus-color-picker": "^1.1.0",
     "js-circle-progress": "^0.2.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"

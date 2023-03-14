@@ -91,4 +91,3 @@ end
 
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'jquery-minicolors-rails'

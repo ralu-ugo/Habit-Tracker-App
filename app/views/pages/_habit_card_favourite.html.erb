@@ -1,0 +1,7 @@
+        <div data-controller="favourite">
+          <li class="fav-habit-card" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
+            <p><%= habit.title %></p><hr>
+            <p><%= habit.description %></p>
+            <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>
+          </li>
+        </div>
