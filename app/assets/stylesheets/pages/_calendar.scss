@@ -6,8 +6,9 @@ a {
 .table-dd{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  max-height: 160px;
+  max-height: 75px;
   overflow-x: scroll;
+  overflow-y: hidden;
   color: white;
   grid-column-gap: 24px;
   a{
@@ -19,11 +20,6 @@ a {
   width: 0;
 }
 
-.table-dd td.today {
-  background-color: #007bff;
-  color: white;
-}
-
 // .calendar-heading {
 //   display: flex;
 //   flex-direction: row;
@@ -31,6 +27,7 @@ a {
 // }
 
 .weekday-card{
+  margin-bottom: 50px;
   padding: 8px;
   box-shadow: 1px 1px 4px black;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.305);
@@ -47,7 +44,10 @@ a {
   justify-content:flex-start;
   text-align: center;
   line-height: 100px;
-
+  overflow: hidden;
+  a{
+    text-decoration: none;
+  }
 }
 
 

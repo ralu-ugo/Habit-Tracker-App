@@ -1,4 +1,5 @@
 class HabitSlot < ApplicationRecord
+  acts_as_list
   belongs_to :habit
   has_many :users, through: :habit
 

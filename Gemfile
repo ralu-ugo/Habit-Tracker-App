@@ -9,6 +9,8 @@ gem "faker"
 
 gem "simple_calendar", "~> 2.4"
 
+gem 'acts_as_list'
+
 gem 'spectrum', '~> 0.0.1'
 
 gem "chartkick"

@@ -1,33 +1,57 @@
 
 <body class="page">
   <div class="content">
-    <h2><%= Date.today %></h2>
+    <h2><%= @date.strftime("%B, %d#{@date.day.ordinal}") %></h2>
     <h2>Daily Schedule Page</h2><br>
-    <ul id = "day-slots">
-    <% @habitslots.each do |habitslot| %>
-    <li class= "day-card">
-      <div class="star-day"><%= render "shared/star"%></div>
-      <h5><%=habitslot.habit.title %></h5>
+    <div class = "not-completed" data-controller="habit-sortable" data-action="sortable#end" data-habit-sortable-list-target>
+      <% @habitslots.each do |habitslot| %>
+        <% habit = habitslot.habit %>
+        <% if habitslot.completed == false %>
+          <li class= "day-card ">
+            <div class="star-day"><%= render "shared/star"%></div>
+            <h5><%=habit.title %></h5>
+            <div class="destroy-edit-buttons">
+              <%= link_to edit_habit_habit_slot_path(habitslot.habit, habitslot), class: "edit-button" do%>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                  </svg>
+                </div>
+              <% end %>
+              <%= link_to habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" do %>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                  <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                  </svg>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
 
-    </li>
-    </ul>
-
-    <%# button to change the date of this particular habitslot %>
-    <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
-      <%# button to delete this particular habitslot %>
-    <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-    <% end %>
+      <% end %>
+    </div>
+    <br><hr>
+    <h3>Completed habits:</h3>
+    <div class="completed">
+      <% @habitslots.each do |habitslot| %>
+        <% habit = habitslot.habit %>
+        <% if habitslot.completed == true %>
+          <li class= "day-card">
+            <div class="star-day"><%= render "shared/star"%></div>
+            <h5><%=habit.title %></h5>
+            <%# button to change the date of this particular habitslot %>
+            <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
+              <%# button to delete this particular habitslot %>
+            <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+          </li>
+        <% end %>
+      <% end %>
+    </div>
 
     <%# button to link to broader calendar %>
 
-    <ul class="fav-habit-display">
-      <% @habitslots.each do |habitslot| %>
-        <%= render "habit_card", habitslot: habitslot %>
-        <%# <p class="btn btn-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%>
-        <%# button to delete this particular habitslot %>
-      <%# <p class="btn btn-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </ul>
   <%= render "shared/navbar" %>
   </div>
 </body>
