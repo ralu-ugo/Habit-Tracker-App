@@ -4,6 +4,7 @@
    h3 {
     color: whitesmoke;
     text-align: center;
+    padding-top: 32px;
   }
 }
 
@@ -101,24 +102,16 @@
   //   padding: 0px;
   //   top: -5px;
   // }
-  .progress {
-    height: 100%;
-    width: 100%;
-  }
-  .circle-progress-value {
-    stroke-width: 11px;
-    stroke: aqua;
-    stroke-dasharray: 0 23.3;
-    stroke-linecap: round;
-  }
-  .progress[aria-valuenow="0"] .circle-progress-value {
-    display: none;
-  }
-  .circle-progress-circle {
-    stroke: transparent;
-  }
-  .circle-progress-text {
-    font-family: "Gotham rounded";
-    font-size: 13px;
-    fill: fuchsia;
-  }
+  // .complete-circle {
+  //   height: 100%;
+  //   width: 100%;
+  //   background-color: black;
+  //   .circle-progress-value {
+  //     stroke-width: 6px;
+  //     stroke: hsl(280, 90%, 50%);
+  //     stroke-linecap: round;
+  //   }
+  //   .circle-progress-circle {
+  //     stroke-width: 2px;
+  //   }
+  // }

@@ -6,7 +6,7 @@
     <ul id = "day-slots">
     <% @habitslots.each do |habitslot| %>
     <li class= "day-card">
-      <div class="star-day"><%= render "shared/star"%></div>
+      <div class="star-day"><%= render "shared/star", habit: habitslot.habit%></div>
       <h5><%=habitslot.habit.title %></h5>
 
     </li>
