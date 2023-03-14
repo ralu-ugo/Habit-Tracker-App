@@ -24,6 +24,3 @@ application.register('color-picker', ColorPickerController)
 
 import FormTogglerController from './form_toggler'
 application.register('form-toggler', FormTogglerController)
-
-import Sortable from 'stimulus-sortable'
-application.register('sortable', Sortable)

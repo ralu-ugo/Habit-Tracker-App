@@ -50,6 +50,6 @@ class HabitSlotsController < ApplicationController
   end
 
   def habitslot_params
-    params.require(:habit_slot).permit(:start_time, :completed, :position)
+    params.require(:habit_slot).permit(:start_time, :completed)
   end
 end
