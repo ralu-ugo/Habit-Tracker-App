@@ -25,6 +25,9 @@
     <% @habits.each do |habit| %>
       <%= link_to habit_path(habit) do %>
         <div class="habit-card">
+          <div class="star-index">
+            <%= render "shared/star" %>
+          </div>
           <h6><%= habit.title %></h6>
         </div>
       <% end %>
@@ -33,4 +36,3 @@
   </div>
 <%= render "shared/navbar" %>
 </body>
-
