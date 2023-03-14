@@ -1,22 +1,33 @@
-<body class= "page">
-  <%# @habitslots = all the habitslots for a user today. loop through them to display todays schedule %>
-  <%# <% @habitslots.each do |habitslot| %>
-  <%# <%= habitslot.habit.title %>
-  <%# button to change the date of this particular habitslot %>
 
-  <%# <% end %>
+<body class="page">
+  <div class="content">
+    <h2><%= Date.today %></h2>
+    <h2>Daily Schedule Page</h2><br>
+    <ul id = "day-slots">
+    <% @habitslots.each do |habitslot| %>
+    <li class= "day-card">
+      <div class="star-day"><%= render "shared/star"%></div>
+      <h5><%=habitslot.habit.title %></h5>
 
-  <%# button to link to broader calendar %>
-  <div class="btn btn-primary"><%= link_to "back to calendar", calendar_path %></div>
+    </li>
+    </ul>
 
+    <%# button to change the date of this particular habitslot %>
+    <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
+      <%# button to delete this particular habitslot %>
+    <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    <% end %>
 
-  <ul class="fav-habit-display">
+    <%# button to link to broader calendar %>
+
+    <ul class="fav-habit-display">
       <% @habitslots.each do |habitslot| %>
         <%= render "habit_card", habitslot: habitslot %>
         <%# <p class="btn btn-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%>
         <%# button to delete this particular habitslot %>
       <%# <p class="btn btn-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       <% end %>
-  </ul>
-
+    </ul>
+  <%= render "shared/navbar" %>
+  </div>
 </body>
