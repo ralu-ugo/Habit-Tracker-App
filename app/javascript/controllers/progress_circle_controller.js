@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   connect() {
-
+    console.log(percent)
     new CircleProgress(this.element, {
       value: 30,
       // value: this.percentValue,

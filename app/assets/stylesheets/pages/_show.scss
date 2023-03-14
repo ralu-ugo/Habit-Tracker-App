@@ -3,8 +3,7 @@
   height: 100%;
    h3 {
     color: whitesmoke;
-    padding-top: 16px;
-    padding-left: 46px;
+    text-align: center;
   }
 }
 
@@ -102,3 +101,24 @@
   //   padding: 0px;
   //   top: -5px;
   // }
+  .progress {
+    height: 100%;
+    width: 100%;
+  }
+  .circle-progress-value {
+    stroke-width: 11px;
+    stroke: aqua;
+    stroke-dasharray: 0 23.3;
+    stroke-linecap: round;
+  }
+  .progress[aria-valuenow="0"] .circle-progress-value {
+    display: none;
+  }
+  .circle-progress-circle {
+    stroke: transparent;
+  }
+  .circle-progress-text {
+    font-family: "Gotham rounded";
+    font-size: 13px;
+    fill: fuchsia;
+  }

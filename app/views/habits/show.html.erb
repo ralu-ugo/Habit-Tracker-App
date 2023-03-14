@@ -35,7 +35,12 @@
       <% end %>
     </div>
   <div class="complete-circle">
-    <div data-controller="circularbar" class="pie" data-pie='{ "colorCircle": "#FFFFFF", "fontColor": "#FFFFFF", "percent": 80 }' ></div>
+    <div
+      class="progress"
+      data-controller="circularbar"
+      data-circularbar-max-days-value="<%= @total_habitslots_count.to_i %>"
+      data-circularbar-completion-days-values="<%=  @habit_completion_rate%>"
+      ></div>
   </div>
     <h3>So close to your monthly goal!</h3>
     <%= render "shared/navbar" %>

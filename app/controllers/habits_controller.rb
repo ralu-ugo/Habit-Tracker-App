@@ -19,6 +19,8 @@ class HabitsController < ApplicationController
   def show
     @habit = Habit.find(params[:id])
     @habit_completion_rate = @habit.calculate_habit_completion_rate_for_habit(params[:id])
+    @total_habitslots_count = @habit.habit_slots.count
+    raise
   end
 
   def new

@@ -21,3 +21,6 @@ application.register('color-picker', ColorPickerController)
 
 import FormTogglerController from './form_toggler'
 application.register('form-toggler', FormTogglerController)
+
+import ProgressCircleController from "./progress_circle_controller"
+application.register("progress-circle", ProgressCircleController)
