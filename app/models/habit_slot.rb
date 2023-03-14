@@ -9,4 +9,8 @@ class HabitSlot < ApplicationRecord
   def incomplete
     self.completed = false
   end
+
+  def self.completed
+    all.where(completed: true)
+  end
 end
