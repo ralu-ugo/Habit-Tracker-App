@@ -1,19 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "repeat"]
+  static targets = ["formcontainer", "repeat"]
 
   connect() {
-  console.log("hello")
+  // console.log(this.formTarget)
   this.csfrToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
   }
 
   toggleForm(event) {
-    console.log(this.formTarget)
-    console.log(this.repeatTarget)
-
-
-
     event.preventDefault()
     fetch(`/habits/new`, {
       method: "GET",
@@ -24,12 +19,9 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data.form)
+        console.dir(data.form)
         console.log(data)
-
-        this.formTarget.insertAdjacentHTML("beforeend", data.form.innerHTML)
-
-
+        this.formcontainerTarget.innerHTML = data.form.innerHTML
       })
   };
 }

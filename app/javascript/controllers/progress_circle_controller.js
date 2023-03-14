@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import CircleProgress from 'js-circle-progress'
-import Chartkick from "chartkick";
 
 // Connects to data-controller="progress-circle"
 export default class extends Controller {
@@ -10,13 +9,10 @@ export default class extends Controller {
   }
 
   connect() {
-
     new CircleProgress(this.element, {
-      value: 30,
-      // value: this.percentValue,
+      value: this.percentValue,
       max: 100,
-      textFormat: 'percent',
+      textFormat: 'percent'
     });
-
   }
 }

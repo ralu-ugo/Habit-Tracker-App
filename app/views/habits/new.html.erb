@@ -1,9 +1,10 @@
 <div class="bg">
     <%= render "shared/footer" %>
-  <div class="container form-container ">
+  <div class="container form-container">
     <h1 class = "new-habit-title">New Habit...</h1>
     <div data-controller="form-toggler">
-      <%= simple_form_for([@habit], data: {form_toggler_target: "form"}) do |f| %>
+    <div data-form-toggler-target="formcontainer">
+      <%= simple_form_for([@habit]) do |f| %>
         <div class="form-inputs">
           <%= f.input :title, label: false, placeholder: "Title" %>
           <%= f.input :description, label: false, placeholder: "Description" %>
@@ -15,6 +16,7 @@
         <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, input_html: { class: "repeat" } %></div>
         <%= f.submit "Add" %>
         <% end %>
+    </div>
     </div>
   </div>
 </div>
