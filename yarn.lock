@@ -85,7 +85,7 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.4.tgz#70a3ca56809f7aaabb80af2f9c01ae51e1a8ed41"
   integrity sha512-tz4oM+Zn9CYsvtyicsa/AwzKZKL+ITHWkhiu7x+xF77clh2b4Rm+s6xnOgY/sGDWoFWZmtKsE95hxBPkgQQNnQ==
 
-"@simonwep/pickr@1.8.2":
+"@simonwep/pickr@1.8.2", "@simonwep/pickr@^1.8.2":
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/@simonwep/pickr/-/pickr-1.8.2.tgz#96dc86675940d7cad63d69c22083dd1cbb9797cb"
   integrity sha512-/l5w8BIkrpP6n1xsetx9MWPWlU6OblN5YgZZphxan0Tq4BByTCETL6lyIeY8lagalS2Nbt4F2W034KHLIiunKA==
@@ -755,6 +755,11 @@ source-map@^0.6.0:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
+stimulus-checkbox-select-all@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/stimulus-checkbox-select-all/-/stimulus-checkbox-select-all-5.2.0.tgz#5ce778e5241978c0b6cdc2b000092c7e3dc357a2"
+  integrity sha512-gONmYrkWMkw5adNUAX8UnS5riCiO//qLpqtVcFaD63ffMmNLAbS8N03Q/e4eCjvFPTfP5tOSI0TLFNx7MRq9aA==
 
 stimulus-color-picker@^1.1.0:
   version "1.1.0"
