@@ -36,7 +36,14 @@ count = 0
       saturday: :everyday ? true : [true, false].sample,
       sunday: :everyday ? true : [true, false].sample
     )
+
+    Habit.all.last.habit_slots.each do |habit_slot|
+      habit_slot.completed = [true, false].sample
+      habit_slot.save!
+    end
   end
+
+
   count += 1
   puts "#{count} set(s) done."
 end
