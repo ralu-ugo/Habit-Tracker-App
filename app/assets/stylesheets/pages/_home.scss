@@ -4,11 +4,11 @@
 //   padding: 0;
 // }
 
-.bg{
-  background-image: url("image.png");
-  width: 100%;
-  height: 852px;
-}
+// .bg{
+
+//   width: 100%;
+//   height: 900px;
+// }
 
 .header {
   padding-top: 200px;
@@ -16,7 +16,7 @@
   font-family: $headers-font;
   color: whitesmoke;
   justify-content: center;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .user_opt{
@@ -44,3 +44,6 @@ a:visited {
   color: rgba(245, 245, 245, 0.505);
 }
 
+.home-page {
+  background-image: url("colours.jpg");
+}

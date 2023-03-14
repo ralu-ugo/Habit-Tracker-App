@@ -3,6 +3,7 @@
   <div class="content">
     <h2><%= @date.strftime("%B, %d#{@date.day.ordinal}") %></h2>
     <h2>Daily Schedule Page</h2><br>
+<<<<<<< HEAD
     <div class = "not-completed" data-controller="habit-sortable" data-action="sortable#end" data-habit-sortable-list-target>
       <% @habitslots.each do |habitslot| %>
         <% habit = habitslot.habit %>
@@ -29,6 +30,13 @@
             </div>
           </li>
         <% end %>
+=======
+    <ul id = "day-slots">
+    <% @habitslots.each do |habitslot| %>
+    <li class= "day-card">
+      <div class="star-day"><%= render "shared/star", habit: habitslot.habit%></div>
+      <h5><%=habitslot.habit.title %></h5>
+>>>>>>> c50aa1d781834eb2114a522a799602232a6cdd61
 
       <% end %>
     </div>
