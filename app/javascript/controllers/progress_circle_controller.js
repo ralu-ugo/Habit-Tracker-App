@@ -12,7 +12,7 @@ export default class extends Controller {
     new CircleProgress(this.element, {
       value: this.percentValue,
       max: 100,
-      textFormat: 'percent',
+      textFormat: 'percent'
     });
   }
 }

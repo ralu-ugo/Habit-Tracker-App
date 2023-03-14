@@ -11,8 +11,8 @@
 <h2 class = "d-flex h2-progress-page my-5" >Your Weekly Progress</h2>
   <div class="chart-wrapper">
     <%= column_chart @habits.map { |habit|
-      {name: habit.title,data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count}
-      }, stacked: true %>
+      {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count }
+      }, stacked: true, xtitle: "Days of the week", ytitle: "Habits Completed"%>
   </div>
 
   <%= render "shared/navbar" %>
