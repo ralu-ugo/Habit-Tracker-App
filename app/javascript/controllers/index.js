@@ -16,12 +16,8 @@ application.register("dateselect", DateselectController)
 import FavouriteController from "./favourite_controller"
 application.register("favourite", FavouriteController)
 
-import CompletedController from "./completed_controller"
-application.register("completed", CompletedController)
-
 import ColorPickerController from './color-picker_controller'
 application.register('color-picker', ColorPickerController)
 
 import FormTogglerController from './form_toggler'
 application.register('form-toggler', FormTogglerController)
-
