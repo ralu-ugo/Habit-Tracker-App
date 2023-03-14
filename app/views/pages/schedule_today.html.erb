@@ -3,6 +3,7 @@
   <div class="content">
     <h2><%= @date.strftime("%B, %d#{@date.day.ordinal}") %></h2>
     <h2>Daily Schedule Page</h2><br>
+
     <div class = "not-completed" data-controller="habit-sortable" data-action="sortable#end" data-habit-sortable-list-target>
       <% @habitslots.each do |habitslot| %>
         <% habit = habitslot.habit %>
@@ -29,6 +30,7 @@
             </div>
           </li>
         <% end %>
+
 
       <% end %>
     </div>

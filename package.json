@@ -12,9 +12,13 @@
     "chartkick": "^5.0.1",
     "circlebars": "^1.0.4",
     "js-circle-progress": "^0.2.4",
+
     "sortablejs": "^1.15.0",
     "stimulus-color-picker": "^1.1.0",
     "stimulus-sortable": "^4.1.0",
+
+    "stimulus-color-picker": "^1.1.0",
+
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
