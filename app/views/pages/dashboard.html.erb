@@ -9,8 +9,11 @@
         <br>
       </span><br>
     </div>
+ <div class = "carousel-div">
+  <%= render "shared/carousel" %>
+ </div>
   <div class="mid-dash">
-    <h4>Your favourited habits</h4>
+    <h4>Your favourite habits</h4>
     <ul class="fav-habit-display">
       <% @habits.each do |habit| %>
         <div data-controller="favourite">
