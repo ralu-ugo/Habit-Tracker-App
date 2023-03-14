@@ -9,14 +9,16 @@
       <%= link_to "Back", dashboard_path, style: "text-decoration: none"%>
     </div>
 
-  <h2 class = "d-flex h2-progress-page my-5" >Your Overall Habit Progress</h2>
+
+<div class= "container-progress">
+  <h2 class = "d-flex h2-progress-page my-5" >Your Overall Habit Progress</h2><hr>
 
   <div class="d-flex justify-content-center my-5">
     <div data-controller="progress-circle" data-progress-circle-percent-value="<%= current_user.calculate_habit_completion_rate %>">
     </div>
   </div>
 
-<h2 class = "d-flex h2-progress-page my-5" >Your Weekly Progress</h2>
+<h2 class = "d-flex h2-progress-page my-5" >Your Weekly Progress</h2><hr>
   <div class="chart-wrapper">
     <%= column_chart @habits.map { |habit|
       {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count }
@@ -24,5 +26,5 @@
   </div>
 
   <%= render "shared/navbar" %>
-
+</div>
 </body>
