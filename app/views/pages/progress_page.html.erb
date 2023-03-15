@@ -11,6 +11,7 @@
 
 
 
+
 <div class= "container-progress">
   <h2 class = "d-flex h2-progress-page my-4" >Your Overall Habit Progress</h2><hr>
 
@@ -19,7 +20,9 @@
     </div>
   </div>
 
+
 <h2 class = "d-flex h2-progress-page my-4" >Your Weekly Progress</h2><hr>
+
   <div class="chart-wrapper">
     <%= column_chart @habits.map { |habit|
       {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count }

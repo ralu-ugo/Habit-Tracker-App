@@ -11,7 +11,7 @@
       <h5><%=habitslot.habit.title %></h5>
     </li>
     </ul>
-    
+
     <div class = "not-completed" data-controller="habit-sortable" data-action="sortable#end" data-habit-sortable-list-target>
       <% @habitslots.each do |habitslot| %>
         <% habit = habitslot.habit %>
