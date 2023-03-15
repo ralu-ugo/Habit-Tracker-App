@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import CheckboxSelectAllController from "./checkbox_select_all_controller"
+application.register("checkbox-select-all", CheckboxSelectAllController)
+
 import CircularbarController from "./circularbar_controller"
 application.register("circularbar", CircularbarController)
+
+import ColorPickerController from "./color_picker_controller"
+application.register("color-picker", ColorPickerController)
 
 import CompletedController from "./completed_controller"
 application.register("completed", CompletedController)
@@ -16,11 +22,8 @@ application.register("dateselect", DateselectController)
 import FavouriteController from "./favourite_controller"
 application.register("favourite", FavouriteController)
 
-import ColorPickerController from './color-picker_controller'
-application.register('color-picker', ColorPickerController)
-
-import FormTogglerController from './form_toggler'
-application.register('form-toggler', FormTogglerController)
+import FormTogglerController from "./form_toggler_controller"
+application.register("form-toggler", FormTogglerController)
 
 import ProgressCircleController from "./progress_circle_controller"
 application.register("progress-circle", ProgressCircleController)

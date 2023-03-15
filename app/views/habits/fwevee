@@ -1,0 +1,49 @@
+<div class="bg">
+    <%= render "shared/footer" %>
+  <div class="container form-container">
+    <h1 class = "new-habit-title">New Habit...</h1>
+    <div data-controller="form-toggler">
+    <%= simple_form_for([@habit], data: { controller: "checkbox-select-all" }) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :title, label: false, placeholder: "Title" %>
+        <%= f.input :description, label: false, placeholder: "Description" %>
+        <div class="date_select">
+          <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
+          <%= f.input :end_date, html5:true, placeholder: "End Date"%>
+        </div>
+      </div>
+      <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, input_html: { class: "repeat" } %></div>
+      <div class="icon-line d-none" data-controller="dateselect" data-form-toggler-target="inputs">
+        <%#= f.input :everyday, as: :boolean, data: { checkbox_select_all_target: "checkboxAll" }, input_html: { class: "toggle"} %>
+          <%= f.collection_check_boxes, , [] [
+
+
+          ]%>
+            <%# <%= f.label do %>
+                <%= b.input :monday, as: :boolean, label: 'Monday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%= b.input :tuesday, as: :boolean, label: 'Tuesday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%= b.input :wednesday, as: :boolean, label: 'Wednesday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%= b.input :thursday, as: :boolean, label: 'Thursday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%= b.input :friday, as: :boolean, label: 'Friday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' }  %>
+                <%= b.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%= b.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+            <%# <% end %>
+
+      </div>
+      <%= f.submit "Add" %>
+      <% end %>
+  </div>
+  </div>
+</div>
+
+    <%#= f.collection do |b| %>
+            <%# <%= f.label do %>
+                <%#= b.input :monday, as: :boolean, label: 'Monday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%#= b.input :tuesday, as: :boolean, label: 'Tuesday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%#= b.input :wednesday, as: :boolean, label: 'Wednesday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%#= b.input :thursday, as: :boolean, label: 'Thursday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%#= b.input :friday, as: :boolean, label: 'Friday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' }  %>
+                <%#= b.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+                <%#= b.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon" }, data: { checkbox_select_all_target: 'checkbox' } %>
+            <%# <% end %>
+          <%# end %>
