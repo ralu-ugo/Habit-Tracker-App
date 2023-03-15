@@ -4,21 +4,19 @@
     <h2><%= @date.strftime("%B, %d#{@date.day.ordinal}") %></h2>
     <h2>Daily Schedule Page</h2><br>
 
-    <ul id = "day-slots">
-    <% @habitslots.each do |habitslot| %>
-    <li class= "day-card">
-      <div class="star-day"><%= render "shared/star"%></div>
-      <h5><%=habitslot.habit.title %></h5>
-    </li>
-    </ul>
-
-    <div class = "not-completed" data-controller="habit-sortable" data-action="sortable#end" data-habit-sortable-list-target>
+    <div class = "not-completed">
       <% @habitslots.each do |habitslot| %>
         <% habit = habitslot.habit %>
         <% if habitslot.completed == false %>
-          <li class= "day-card ">
-
-            <div class="star-day"><%= render "shared/star", habit: habit %></div>
+          <li class= "day-card" data-controller="completed" data-action="click->completed#completed" data-id="<%= habitslot.id %>" data-habitid="<%= habit.id %>" data-date="<%= @date %>" data-completed="<%= habitslot.completed %>" >
+          <%# <%= link_to habit_habit_slot_path(habitslot.habit, habitslot) do%>
+            <div class="check" data-completed-target="habitslot">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>
+            </div>
+          <%# <% end %>
+            <div class="star-day"><%= render "shared/star", habit: habit%></div>
             <h5><%=habit.title %></h5>
             <div class="destroy-edit-buttons">
               <%= link_to edit_habit_habit_slot_path(habitslot.habit, habitslot), class: "edit-button" do%>
