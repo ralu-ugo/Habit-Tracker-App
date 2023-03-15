@@ -6,7 +6,7 @@
   justify-content: center;
   padding: 32px;
   overflow-x: scroll;
-  padding-left: 112px;
+
 }
 
 .fav-habit-card{
@@ -21,6 +21,7 @@
   transition: 1s;
   position: relative;
   height: 300px;
+  width: 100px;
 
 
 }
@@ -41,3 +42,4 @@ padding-bottom: 16px;
 //   transition: 1s;
 //   background-color: rgba(255, 99, 71, 0.491);
 // }
+
