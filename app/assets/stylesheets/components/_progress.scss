@@ -1,36 +1,49 @@
-
+//css for the progress circle
 .circle-progress {
   width: 200px;
   height: 200px;
+  margin-top: 40px;
+
 }
 
-
 .circle-progress-value {
-	stroke-width: 6px;
+  stroke-width: 6px;
 	stroke: #fa07d9;
 	stroke-dasharray: 0.6 3;
 }
 .circle-progress-circle {
-	stroke-width: 6px;
+  stroke-width: 6px;
 	stroke: #ffffff;
 	stroke-dasharray: 0.6 3;
 	stroke-dashoffset: 1.6;
 }
 .circle-progress-text {
-	font-family: $body-font;
+  font-family: $body-font;
 	fill: white(100, 81%, 55%);
 	font-size: 26px;
 }
 
+
+
+
+// css for progress page
 .h2-progress-page {
   color: $font-color;
-  padding-left: 20px;
+  padding-top: 24px;
+
+}
+
+.h2-progress-weekly {
+  padding-top: 24px;
 }
 
 .chart-wrapper {
   margin: auto;
   height: 300px;
-  width: 300px;
+
+  padding-top: 36px;
+  padding-right: 24px;
+  padding-left: 24px;
 }
 
 .back-button-progress {
@@ -39,6 +52,31 @@
 
 
 .container-progress {
-  padding: 24px; 
+  padding-left: 24px;
+  padding-right: 24px;
+  overflow: auto;
 }
 
+
+#chart-1 {
+  padding-bottom: 24px;
+  height: 500px;
+}
+
+
+.my-5 {
+  margin-bottom: 1rem !important;
+}
+
+.progress-page-circle {
+  margin-bottom: 100px;
+}
+
+
+.chart-card {
+  border-radius: 5px;
+  box-shadow: 0 0 10px #9198e5;
+  background: linear-gradient(white, #9198e5);
+  height: 330px;
+
+}
