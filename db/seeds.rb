@@ -16,11 +16,11 @@ puts "Cleaning database..."
 puts "Creating Users and Habits"
 count = 0
 
-# user = User.create(email: "test@test.com", password: "123456")
 
 2.times do
 
   user = User.create(email: Faker::Internet.email, password: "123456")
+  user = User.create(email: "test@test.com", password: "123456")
 
 
   3.times do
