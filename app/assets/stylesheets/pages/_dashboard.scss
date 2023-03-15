@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background-image: linear-gradient(90deg, rgb(218, 255, 71), tomato);
+  background-image: linear-gradient(90deg, rgb(218, 255, 71), rgb(255, 71, 227));
   border-radius: 12px;
   transition: 1s;
   position: relative;
@@ -27,6 +27,15 @@
 .top-dash {
   height: 100px;
 }
+
+.top-dash {
+  height: 100px;
+}
+
+.carousel-div {
+padding-bottom: 16px;
+}
+
 
 // .fav-habit-card:hover{
 //   transition: 1s;

@@ -14,10 +14,11 @@
       <h4>View daily schedules</h4>
       <%= week_calendar(events: @habitslots) do |date, habitslots| %>
         <% @habitslots.each do |habitslot| %>
-        <div>
-          <h6><%= date.strftime("%a") %> <br> <%= date.strftime("%d") %></h6>
-          <p><%= link_to habitslot.habit.title, habit_path(habitslot.habit)%></p>
-        </div>
+          <div>
+            <%= link_to schedule_today_path(date) do %>
+              <h6><%= date.strftime("%a") %> <br> <%= date.strftime("%d") %></h6>
+            <% end %>
+          </div>
         <% end %>
       <% end %>
     </div><hr>
@@ -26,7 +27,9 @@
       <%= link_to habit_path(habit) do %>
         <div class="habit-card">
           <div class="star-index">
+
             <%= render "shared/star", habit: habit %>
+
           </div>
           <h6><%= habit.title %></h6>
         </div>
