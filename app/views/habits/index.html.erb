@@ -21,21 +21,38 @@
           </div>
         <% end %>
       <% end %>
-    </div><hr>
+    </div>
+  <hr>
+
   <div class="habits-display">
     <% @habits.each do |habit| %>
       <%= link_to habit_path(habit) do %>
-        <div class="habit-card">
-          <div class="star-index">
-
-            <%= render "shared/star", habit: habit %>
-
+        <div data-controller="favourite">
+          <div class="habit-card" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
+            <p><%= habit.title %></p><hr>
+            <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>
           </div>
-          <h6><%= habit.title %></h6>
         </div>
       <% end %>
     <% end %>
   </div>
-  </div>
+
+
+
+          <%# <%= link_to habit_path(habit) do %>
+            <%# <div class="habit-card"> %>
+              <%# <div class="star-index"> %>
+
+                <%# <%= render "shared/star", habit: habit %>
+
+              <%# </div> %>
+              <%# <h6><%= habit.title %>
+            <%# </div>
+          <% end %>
+    <%# <% end %>
+  <%# </div> %>
+
+
+
 <%= render "shared/navbar" %>
 </body>

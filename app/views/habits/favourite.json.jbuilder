@@ -1,1 +1,1 @@
-json.card render(partial: "pages/habit_card_favourite", format: :html, locals: { habit: @habit } )
+json.card render(partial: "pages/index_habit_card", format: :html, locals: { habit: @habit } )

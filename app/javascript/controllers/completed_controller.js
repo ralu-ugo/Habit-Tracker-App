@@ -1,81 +1,32 @@
 import { Controller } from "@hotwired/stimulus"
-
 export default class extends Controller {
   static targets = ["habitslot"]
-
   connect() {
-  let status = this.element.getAttribute('data-completed');
-  console.log(status);
-  console.log("hello")
+  console.log("hello!")
   this.csfrToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
   }
-
   completed(event) {
     event.preventDefault()
-    console.log("Completed controller connected");
-    const habitSlot = event.target.closest(".day-card");
-    const habitSlotId = habitSlot.dataset.id;
-    const habitId = this.element.dataset.habitid;
-    const date = this.element.dataset.date;
-    console.log(habitId);
-    console.log(habitSlotId);
-    let status = this.element.getAttribute('data-completed');
-    console.log(status);
-    let isCompleted = this.element.getAttribute('data-completed') === 'true'
-    let newCompletedValue = !isCompleted
-    // console.log(isCompleted);
-    // console.log(newCompletedValue);
-    this.element.setAttribute('data-completed', newCompletedValue);
     event.currentTarget.classList.toggle("favourite-toggle-colour")
-    // const habitslot_id = this.habitslotTarget.dataset.id
-    // const habitslot = HabitSlot.find()
-    // console.log(habitslot_id);
-    // const habit_id = this.habitslotTarget.dataset.habitId;
+    const habitslot_id = this.habitslotTarget.dataset.id
+    const habit_id = this.habitslotTarget.dataset.habitId;
     // const completed = this.habitslotTarget.dataset.completed === "true"
     // const data = { completed: true };
-
-
-    fetch(`${date}`,{
-      type: "PATCH",
-      data: {
-        habit_slot: {
-          completed: !isCompleted
-        }
-      },
-      success: function(data) {
-        // Update completed attribute in data attribute of habit-slot div
-        habitSlot.dataset.completed = !isCompleted;
-
-        // Toggle check icon class
-        const checkIcon = habitSlot.querySelector(".check-icon");
-        checkIcon.classList.toggle("completed");
-      },
-      error: function(xhr, status, error) {
-        console.log(`Error: ${error}`);
-      }
-    });
-
-
     const formData = new FormData()
-    formData.append("habit_slot[:completed]", "true")
-
-
-    // const url = this.data.get("url")
-    // console.log(url);
-    // fetch(`${url}`, {
-    //   method: "PATCH",
-    //   headers: {
-    //     "Accept": "application/json",
-    //     "X-CSRF-Token": this.csfrToken
-    //   },
-    //   body: formData
-    // })
-    //   .then(response => response.json())
-    //   .then((data) => {
-
-    //     console.log(data.card)
-    //     console.log(this.habitslotTarget)
-    //     this.habitslotTarget.innerHTML = data.card
-    //   })
+    formData.append("habit_slot[completed]", "true")
+    fetch(`/habits/${habit_id}/habit_slots/${habitslot_id}`, {
+      method: "PATCH",
+      headers: {
+        "Accept": "application/json",
+        "X-CSRF-Token": this.csfrToken
+      },
+      body: formData
+    })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data.card)
+        console.log(this.habitslotTarget)
+        this.habitslotTarget.innerHTML = data.card
+      })
   };
 }
