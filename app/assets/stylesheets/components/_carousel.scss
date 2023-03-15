@@ -1,0 +1,25 @@
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-item blockquote {
+    margin-bottom: 2rem;
+  }
+
+
+  .carousel-inner {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+.blockquote-footer {
+  margin-top: 5px;
+}
+
+.blockquote {
+  height: 90px;
+  overflow: auto;
+}
