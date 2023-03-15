@@ -3,8 +3,8 @@
   height: 100%;
    h3 {
     color: whitesmoke;
-    padding-top: 16px;
-    padding-left: 46px;
+    text-align: center;
+    padding-top: 32px;
   }
 }
 
@@ -101,4 +101,17 @@
   //   left: -199px;
   //   padding: 0px;
   //   top: -5px;
+  // }
+  // .complete-circle {
+  //   height: 100%;
+  //   width: 100%;
+  //   background-color: black;
+  //   .circle-progress-value {
+  //     stroke-width: 6px;
+  //     stroke: hsl(280, 90%, 50%);
+  //     stroke-linecap: round;
+  //   }
+  //   .circle-progress-circle {
+  //     stroke-width: 2px;
+  //   }
   // }

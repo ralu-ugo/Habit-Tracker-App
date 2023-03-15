@@ -7,12 +7,12 @@
 
 .circle-progress-value {
 	stroke-width: 6px;
-	stroke: #833471;
+	stroke: #fa07d9;
 	stroke-dasharray: 0.6 3;
 }
 .circle-progress-circle {
 	stroke-width: 6px;
-	stroke: #ddd;
+	stroke: #ffffff;
 	stroke-dasharray: 0.6 3;
 	stroke-dashoffset: 1.6;
 }
@@ -32,3 +32,13 @@
   height: 300px;
   width: 300px;
 }
+
+.back-button-progress {
+  padding: 16px;
+}
+
+
+.container-progress {
+  padding: 24px; 
+}
+
