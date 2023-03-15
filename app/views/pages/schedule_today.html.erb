@@ -37,17 +37,19 @@
             </div>
           </li>
         <% end %>
+      <% end %>
+
 
 
     <%# button to change the date of this particular habitslot %>
-    <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
+    <%# <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
       <%# button to delete this particular habitslot %>
-    <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
-    <% end %>
+    <%# <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    <%# <% end %>
 
 
 
-      <% end %>
+
     </div>
     <br><hr>
     <h3>Completed habits:</h3>
