@@ -1,8 +1,9 @@
 
 <body class="page">
   <div class="content">
-    <h2><%= Date.today %></h2>
+    <h2><%= @date.strftime("%B, %d#{@date.day.ordinal}") %></h2>
     <h2>Daily Schedule Page</h2><br>
+
     <ul id = "day-slots">
     <% @habitslots.each do |habitslot| %>
     <li class= "day-card">
@@ -10,11 +11,13 @@
       <h5><%=habitslot.habit.title %></h5>
     </li>
     </ul>
+    
     <div class = "not-completed" data-controller="habit-sortable" data-action="sortable#end" data-habit-sortable-list-target>
       <% @habitslots.each do |habitslot| %>
         <% habit = habitslot.habit %>
         <% if habitslot.completed == false %>
           <li class= "day-card ">
+
             <div class="star-day"><%= render "shared/star", habit: habit %></div>
             <h5><%=habit.title %></h5>
             <div class="destroy-edit-buttons">
@@ -37,22 +40,37 @@
           </li>
         <% end %>
 
+
     <%# button to change the date of this particular habitslot %>
     <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
       <%# button to delete this particular habitslot %>
     <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
     <% end %>
 
+
+
+      <% end %>
+    </div>
+    <br><hr>
+    <h3>Completed habits:</h3>
+    <div class="completed">
+      <% @habitslots.each do |habitslot| %>
+        <% habit = habitslot.habit %>
+        <% if habitslot.completed == true %>
+          <li class= "day-card">
+            <div class="star-day"><%= render "shared/star"%></div>
+            <h5><%=habit.title %></h5>
+            <%# button to change the date of this particular habitslot %>
+            <p class="btn btn-outline-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%></p>
+              <%# button to delete this particular habitslot %>
+            <p class="btn btn-outline-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+          </li>
+        <% end %>
+      <% end %>
+    </div>
+
     <%# button to link to broader calendar %>
 
-    <ul class="fav-habit-display">
-      <% @habitslots.each do |habitslot| %>
-        <%= render "habit_card", habitslot: habitslot %>
-        <%# <p class="btn btn-primary"><%= link_to "change habit date", edit_habit_habit_slot_path(habitslot.habit, habitslot)%>
-        <%# button to delete this particular habitslot %>
-      <%# <p class="btn btn-primary"><%= link_to "Delete", habit_slot_path(habitslot), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </ul>
   <%= render "shared/navbar" %>
   </div>
 </body>

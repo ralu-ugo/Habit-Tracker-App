@@ -1,8 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
+import CircleProgress from 'js-circle-progress'
 
 export default class extends Controller {
+  static values = {
+    maxDays: Number,
+    completionDays: Number,
+  }
   connect() {
-    const circle = new CircularProgressBar("pie");
-    circle.initial();
+    console.log(this.maxDaysValue)
+    console.log(this.completionDaysValue)
+    new CircleProgress(this.element, {
+      value: this.completionDaysValue,
+      max: this.maxDaysValue
+    });
   }
 }

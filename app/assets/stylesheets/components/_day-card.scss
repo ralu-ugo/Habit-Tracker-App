@@ -3,9 +3,13 @@
   list-style: none;
   padding: 16px;
   border-radius: 16px;
+  margin-top: 16px;
+  width: 150px;
   .star-day {
     padding-left: 280px;
   }
+  overflow: hidden;
+  align-items: center;
 }
 
 ul {

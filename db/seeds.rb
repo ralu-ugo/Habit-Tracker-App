@@ -17,6 +17,7 @@ puts "Creating Users and Habits"
 count = 0
 
 
+
 2.times do
 
   user = User.create(email: Faker::Internet.email, password: "123456")
