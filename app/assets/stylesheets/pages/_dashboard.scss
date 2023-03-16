@@ -1,6 +1,6 @@
 .fav-habit-display{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
   justify-content: center;
@@ -21,7 +21,7 @@
   transition: 1s;
   position: relative;
   height: 300px;
-  width: 100px;
+  width: 150px;
 
 
 }
@@ -42,4 +42,3 @@ padding-bottom: 16px;
 //   transition: 1s;
 //   background-color: rgba(255, 99, 71, 0.491);
 // }
-
