@@ -60,4 +60,10 @@ class Habit < ApplicationRecord
       0
     end
   end
+
+  def generategradient
+    habit = Habit.find(id)
+    @str = "lineargradient(90deg,#{habit.colour1}, #{habit.colour1});"
+    @str
+  end
 end

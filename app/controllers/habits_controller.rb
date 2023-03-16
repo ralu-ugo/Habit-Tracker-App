@@ -115,7 +115,8 @@ class HabitsController < ApplicationController
       :saturday,
       :sunday,
       :user_id,
-      :colour
+      :colour1,
+      :colour2
     )
   end
 end
