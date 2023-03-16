@@ -4,6 +4,9 @@ class Habit < ApplicationRecord
   after_create :create_habit_slots
   after_update :update_habit_slots
 
+  validates :title, :start_date, :end_date, presence: true
+
+
   def set_favourite(favourite)
     self.favourite = favourite.save
   end
