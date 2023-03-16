@@ -7,8 +7,8 @@
         <div class="form-inputs">
           <%= f.input :title, label: false, placeholder: "Title" %>
           <%= f.input :description, label: false, placeholder: "Description" %>
-          <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
-          <%= f.input :end_date, html5:true, placeholder: "End Date"%>
+          <%= f.input :start_date, html5:true, placeholder: "Start Date", input_html: { style: 'padding: 10px;' }%>
+          <%= f.input :end_date, html5:true, placeholder: "End Date", input_html: { style: 'padding: 10px; display: flex; justify-content: space-evenly; flex-direction; column;' }%>
         </div>
         <div class= "toggle-style" data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, label: "Repeat Habit", input_html: { class: "toggle" } %></div>
         <div class="d-none" data-controller="dateselect checkbox-select-all" data-form-toggler-target="inputs">
@@ -17,17 +17,17 @@
             <label for="check-all">Do habit everyday</label>
           </div> %>
           <div class="weekdays">
-            <%= f.input :monday, as: :boolean, label: content_tag(:span, "M"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
-            <%= f.input :tuesday, as: :boolean, label: content_tag(:span, "T"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
-            <%= f.input :wednesday, as: :boolean, label: content_tag(:span, "W"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
-            <%= f.input :thursday, as: :boolean, label: content_tag(:span, "T"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
-            <%= f.input :friday, as: :boolean, label: content_tag(:span, "F"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
-            <%= f.input :saturday, as: :boolean, label: content_tag(:span, "S"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :monday, as: :boolean, label: content_tag(:span, "MON"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :tuesday, as: :boolean, label: content_tag(:span, "TUE"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :wednesday, as: :boolean, label: content_tag(:span, "WED"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :thursday, as: :boolean, label: content_tag(:span, "THU"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :friday, as: :boolean, label: content_tag(:span, "FRI"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :saturday, as: :boolean, label: content_tag(:span, "SAT"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
             <%= f.input :sunday, as: :boolean, label: content_tag(:span, "SUN"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
           </div>
-        </div>
+        </div><hr>
         <div class= "pick-color-title">
-          <h6>Choose a gradient</h6><hr>
+          <h6>Choose a colour scheme</h6>
         </div>
         <div class="colour-picker-flexbox">
           <div data-controller="color-picker" class="color-picker-1">
