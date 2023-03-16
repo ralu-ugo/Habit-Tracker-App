@@ -47,3 +47,8 @@ padding: 1rem;
 .day-checkbox:checked + .day-label {
   background-color: green
 }
+
+.form-inputs input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

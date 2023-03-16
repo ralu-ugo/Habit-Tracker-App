@@ -1,4 +1,11 @@
-<%= simple_form_for [@habit, @habitslot] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<body class="page">
+  <%= render "shared/footer" %>
+  <%= render "shared/navbar" %>
+  <div class="form-edit-habitslot">
+    <%= simple_form_for [@habit, @habitslot] do |f| %>
+      <%= f.input :start_time %>
+      <%= f.input :end_time %>
+      <%= f.submit "Submit review", class: "button-submit" %>
+    <% end %>
+  </div>
+</body>
