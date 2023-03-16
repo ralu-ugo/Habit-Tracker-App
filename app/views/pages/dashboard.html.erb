@@ -17,7 +17,7 @@
     <ul class="fav-habit-display">
       <% @fav_habits.each do |habit| %>
         <%# <div data-controller="favourite"> %>
-          <li class="fav-habit-card" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
+          <li class="fav-habit-card" style="background:linear-gradient(90deg, <%= habit.colour1 %>, <%= habit.colour2 %> ); data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
             <p><%= habit.title %></p><hr>
             <p><%= habit.description %></p>
             <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>

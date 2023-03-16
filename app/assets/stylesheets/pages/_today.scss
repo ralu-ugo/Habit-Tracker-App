@@ -1,4 +1,12 @@
 .not-completed, .completed{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.icon-day{
+  // box-shadow: 4px 4px rgb(0, 0, 0);
+
 }

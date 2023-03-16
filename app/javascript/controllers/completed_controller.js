@@ -1,32 +1,48 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
+
 export default class extends Controller {
-  static targets = ["habitslot"]
+  static targets = ["habitslot", "cardWrapper", "completedWrapper"];
+
   connect() {
-  console.log("hello!")
-  this.csfrToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+    this.csrfToken = document
+      .querySelector('meta[name="csrf-token"]')
+      .getAttribute("content");
+    let status = this.element.getAttribute("data-completed");
+    console.log(status);
   }
-  completed(event) {
-    event.preventDefault()
-    event.currentTarget.classList.toggle("favourite-toggle-colour")
-    const habitslot_id = this.habitslotTarget.dataset.id
-    const habit_id = this.habitslotTarget.dataset.habitId;
-    // const completed = this.habitslotTarget.dataset.completed === "true"
-    // const data = { completed: true };
-    const formData = new FormData()
-    formData.append("habit_slot[completed]", "true")
-    fetch(`/habits/${habit_id}/habit_slots/${habitslot_id}`, {
+
+  async completed(event) {
+    event.preventDefault();
+
+    // Get the necessary data attributes
+    let status = this.element.getAttribute("data-completed");
+    console.log(status);
+    const habitSlot = event.target.closest(".day-card");
+    const habitSlotId = habitSlot.dataset.id;
+    const habitId = this.element.dataset.habitid;
+    const date = this.element.dataset.date;
+
+    // Update the habit slot in the database
+    const data = { habit_slot: { completed: !this.completedValue } };
+    fetch(`/habits/${habitId}/habit_slots/${habitSlotId}`, {
       method: "PATCH",
       headers: {
-        "Accept": "application/json",
-        "X-CSRF-Token": this.csfrToken
+        "Content-Type": "application/json",
+        "X-CSRF-Token": this.csrfToken,
       },
-      body: formData
+      body: JSON.stringify(data),
     })
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data.card)
-        console.log(this.habitslotTarget)
-        this.habitslotTarget.innerHTML = data.card
+      .then(() => {
+        // Update UI
+        this.completedValue = !this.completedValue;
+        const card = habitSlot;
+        this.completedValue
+          ? card.closest(".not-completed").removeChild(card)
+          : card.closest(".completed").removeChild(card);
+        location.reload();
       })
-  };
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
 }

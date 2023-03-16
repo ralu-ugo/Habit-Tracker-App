@@ -41,39 +41,3 @@
     </div>
   <%= render "shared/navbar" %>
 </body>
-
-<body class="page">
-  <%= render "shared/footer" %>
-    <div class="form-container">
-      <h1 class = "new-habit-title">New Habit...</h1>
-      <div data-controller="form-toggler">
-      <%= simple_form_for([@habit]) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :title, label: false, placeholder: "Title" %>
-          <%= f.input :description, label: false, placeholder: "Description" %>
-          <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
-          <%= f.input :end_date, html5:true, placeholder: "End Date"%>
-        </div>
-        <div data-controller="color-picker" class="colour-picker-flexbox">
-          <%= f.input :colour1, as: :hidden, input_html: { value: "#667EEA", data: { color_picker_target: "input" } }  %>
-          <div data-color-picker-target="button"></div>
-          <%= f.input :colour2, as: :hidden, input_html: { value: "#667EEA", data: { color_picker_target: "input" } }  %>
-          <div data-color-picker-target="button"></div>
-        </div>
-        <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, input_html: { class: "repeat" } %></div>
-        <div class="weekdays d-none" data-controller="dateselect checkbox-select-all" data-form-toggler-target="inputs">
-        <div class="btn btn-primary" data-action="click->checkbox-select-all#checkAll" data-checkbox-select-all-target="checkall"> Select All </div>
-          <%= f.input :monday, as: :boolean, label: 'Monday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :tuesday, as: :boolean, label: 'Tuesday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :wednesday, as: :boolean, label: 'Wednesday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :thursday, as: :boolean, label: 'Thursday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :friday, as: :boolean, label: 'Friday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-        </div>
-        <%= f.submit "Add" %>
-        <% end %>
-      </div>
-    </div>
-  <%= render "shared/navbar" %>
-</body>
