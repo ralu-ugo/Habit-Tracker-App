@@ -21,7 +21,7 @@
   <div class="chart-wrapper">
     <%= column_chart @habits.map { |habit|
       {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count }
-      }, stacked: true, xtitle: "Day Completed", ytitle: "No. Habits Completed", colors: ["white", "black", "purple", "orange"]
+      }, stacked: true, xtitle: "Day Completed", ytitle: "No. Habits Completed", color: ["white", "black", "purple", "orange"]
       %>
   </div>
 </div>
