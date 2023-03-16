@@ -1,6 +1,6 @@
 <%= link_to habit_path(habit) do %>
   <div data-controller="favourite">
-    <div class="habit-card" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
+    <div class="habit-card" style="background:linear-gradient(45deg, <%= habit.colour1 %>, <%= habit.colour2 %> );" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
       <p><%= habit.title %></p><hr>
       <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>
     </div>
