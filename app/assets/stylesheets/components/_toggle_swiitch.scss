@@ -20,12 +20,12 @@
   height: 20px;
   top: 0;
   left: 0;
-  background-color: red;
+  background: linear-gradient( 45deg, #9240A4, #EC3344, #FCBA56);
   border-radius: 50rem;
 }
 
 .toggle:checked + label::before {
-  background-color: green;
+  background-color: #9198e5;
 }
 
 .toggle + label::after {
@@ -44,4 +44,5 @@
 
 .toggle:checked + label::after {
   left: 18px;
+  background-color: white;
 }
