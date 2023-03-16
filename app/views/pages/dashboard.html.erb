@@ -17,13 +17,13 @@
     <h4 class= "fav-habit-title">My Favourite Habits</h4>
     <div class="fav-habit-display">
       <% @fav_habits.each do |habit| %>
-        <%# <div data-controller="favourite"> %>
-          <li class="fav-habit-card" style="background:linear-gradient(90deg, <%= habit.colour1 %>, <%= habit.colour2 %> );" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
-            <p><%= habit.title %></p><hr>
-            <p><%= habit.description %></p>
+          <li class="fav-habit-card" style="background:linear-gradient(90deg, <%= habit.colour1 %>, <%= habit.colour2 %> ); "data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
+            <%= link_to habit_path(habit) do %>
+            <p class= "title-dashboard"><%= habit.title %></p><hr>
+            <p class= "desc-dashboard"><%= habit.description %></p>
             <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>
-          </div>
-        <%# </div> %>
+            <% end %>
+          </li>
       <% end %>
     </div>
   </div>
