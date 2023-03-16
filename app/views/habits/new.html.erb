@@ -1,8 +1,8 @@
 <body class="page">
   <%= render "shared/footer" %>
     <div class="form-container">
-      <h1 class = "new-habit-title">New Habit...</h1>
-      <div data-controller="form-toggler">
+      <h2 class = "new-habit-title">New Habit...</h2><hr>
+      <div class= "form-info" data-controller="form-toggler" >
       <%= simple_form_for([@habit]) do |f| %>
         <div class="form-inputs">
           <%= f.input :title, label: false, placeholder: "Title" %>
@@ -10,19 +10,20 @@
           <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
           <%= f.input :end_date, html5:true, placeholder: "End Date"%>
         </div>
+        <div class= "pick-color-title">
+          <h6>Pick a colour</h6><hr>
+        </div>
         <div class="colour-picker-flexbox">
           <div data-controller="color-picker" class="color-picker-1">
-            <%= f.input :colour1, as: :hidden, input_html: { value: "#1837C2", data: { color_picker_target: "input" } }  %>
-            <p>Habit colour 1</p>
+            <%= f.input :colour1, as: :hidden, input_html: { value: "#e66465", data: { color_picker_target: "input" } }  %>
             <div data-color-picker-target="button"></div>
           </div>
           <div data-controller="color-picker">
-            <%= f.input :colour2, as: :hidden, input_html: { value: "#9F7AEA", data: { color_picker_target: "input" } }  %>
-            <p>Habit colour 2</p>
+            <%= f.input :colour2, as: :hidden, input_html: { value: "#9198e5", data: { color_picker_target: "input" } }  %>
             <div data-color-picker-target="button"></div>
           </div>
         </div>
-        <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, label: "Make this a repeating habit", input_html: { class: "toggle" } %></div>
+        <div class= "toggle-style" data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, label: "Repeat Habit", input_html: { class: "toggle" } %></div>
         <div class="d-none" data-controller="dateselect checkbox-select-all" data-form-toggler-target="inputs">
          <%# <div class="toggle">
             <input id="check-all" type="checkbox" data-action="change->checkbox-select-all#checkAll" data-checkbox-select-all-target="checkall">
@@ -38,7 +39,7 @@
             <%= f.input :sunday, as: :boolean, label: content_tag(:span, "S"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
           </div>
         </div>
-        <%= f.submit "Add" %>
+        <%= f.submit "Add Habit" %>
         <% end %>
     </div>
   <%= render "shared/navbar" %>

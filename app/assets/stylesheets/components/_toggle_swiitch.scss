@@ -20,12 +20,12 @@
   height: 20px;
   top: 0;
   left: 0;
-  background-color: red;
+  background-color: #e66465;
   border-radius: 50rem;
 }
 
 .toggle:checked + label::before {
-  background-color: green;
+  background-color: #9198e5;
 }
 
 .toggle + label::after {
@@ -44,4 +44,5 @@
 
 .toggle:checked + label::after {
   left: 18px;
+  background-color: white;
 }

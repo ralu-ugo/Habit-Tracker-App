@@ -13,20 +13,20 @@
   <%= render "shared/carousel" %>
  </div>
   <div>
-    <h4>Your favourite habits</h4>
-    <ul class="fav-habit-display">
+    <h4 class= "fav-habit-title">My Favourite Habits</h4>
+    <div class="fav-habit-display">
       <% @fav_habits.each do |habit| %>
         <%# <div data-controller="favourite"> %>
-          <li class="fav-habit-card" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
+          <div class="fav-habit-card" data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
             <p><%= habit.title %></p><hr>
             <p><%= habit.description %></p>
             <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>
-          </li>
+          </div>
         <%# </div> %>
       <% end %>
-    </ul>
+    </div>
   </div>
-      </ul>
+      </div>
     </div>
   <%= render "shared/navbar" %>
 </div>
