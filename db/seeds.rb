@@ -37,6 +37,8 @@ count = 0
       end_date: Faker::Date.forward(days: 100),
       user_id: user.id,
       repeat: [true, false].sample,
+      colour1: Faker::Color.hex_color,
+      colour2: Faker::Color.hex_color,
       everyday: :repeat ? true : false,
       monday: :everyday ? true : [true, false].sample,
       tuesday: :everyday ? true : [true, false].sample,

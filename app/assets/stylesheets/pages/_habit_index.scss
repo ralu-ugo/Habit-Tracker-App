@@ -44,3 +44,21 @@
   font-family: $headers-font;
   font-weight: 200;
 }
+
+
+
+.container-attributes {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+.speed { background-color: $orange;} /* Green */
+.intelligence {background-color: $orange;} /* Blue */
+.strength {background-color: $orange;}
