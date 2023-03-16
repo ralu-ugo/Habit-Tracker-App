@@ -1,11 +1,14 @@
 <body class="page">
   <%= render "shared/footer" %>
   <%= render "shared/navbar" %>
-  <div class="form-edit-habitslot">
-    <%= simple_form_for [@habit, @habitslot] do |f| %>
-      <%= f.input :start_time %>
-      <%= f.input :end_time %>
-      <%= f.submit "Submit review", class: "button-submit" %>
-    <% end %>
-  </div>
+    <div class="container-form-habitslot">
+      <h2 class= "habitslot-page-title">Change my habit day...</h2><hr>
+      <%= simple_form_for [@habit, @habitslot] do |f| %>
+        <div class="form-edit-habitslot">
+          <%= f.input :start_time, html5:true, placeholder: "Start Date", label: "Start date" %>
+          <%= f.input :end_time, html5:true, placeholder: "End Date", label: "End date" %>
+          <%= f.submit "Done", class: "button-submit" %>
+        </div>
+      <% end %>
+    </div>
 </body>
