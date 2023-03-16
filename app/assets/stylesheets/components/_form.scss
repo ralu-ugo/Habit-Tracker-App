@@ -8,6 +8,7 @@
 .colour-picker-flexbox {
   display: flex;
   justify-content: start;
+  margin-bottom: 24px;
 
 }
 
@@ -48,7 +49,7 @@
 }
 
 .day-checkbox:checked + .day-label {
-  background: linear-gradient(#e66465, #9198e5);
+  background: linear-gradient( 45deg, #9240A4, #EC3344, #FCBA56);
 }
 
 .pick-color-title {
@@ -63,7 +64,7 @@
 
 
 input[type="submit"] {
-  background-image: linear-gradient(90deg, #3A1C71, #D76D77, #FFAF7B);
+  background: linear-gradient( 45deg, #9240A4, #EC3344, #FCBA56);
   width: 30%; //width
   color: white; //color of text
   border-radius: 8px; //round corners
