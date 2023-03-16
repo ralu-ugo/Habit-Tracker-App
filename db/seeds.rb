@@ -25,7 +25,7 @@ count = 0
 2.times do
 
   user = User.create(email: Faker::Internet.email, password: "123456")
-  user = User.create(email: "test@test.com", password: "123456")
+  user = User.create(email: "test@test.com", password: "123456", nickname: Faker::Name.first_name)
 
 
   3.times do
