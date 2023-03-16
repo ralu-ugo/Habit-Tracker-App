@@ -31,9 +31,9 @@
           <div class="habit-card" style="background:linear-gradient(90deg, <%= habit.colour1 %>, <%= habit.colour2 %> ); " data-favourite-target="habit" data-favourite="<%= habit.favourite %>" data-id="<%= habit.id %>">
             <p><%= habit.title %></p><hr>
             <div data-action="click->favourite#favourite" data-favourite-target="star"><%= render "shared/star", habit: habit %></div>
-            <div class="container-attributes">
-              <div class="skills speed" style="width: <%= habit.calculate_habit_completion_rate_for_habit(habit.id) %>%"><%= habit.calculate_habit_completion_rate_for_habit(habit.id) %></div>
-            </div>
+            <%# <div class="container-attributes">
+              <div class="skills speed" style="width: <%= habit.calculate_habit_completion_rate_for_habit(habit.id)%">= habit.calculate_habit_completion_rate_for_habit(habit.id) %><%# </div>
+            <%# </div>  %>
           </div>
         </div>
       <% end %>
