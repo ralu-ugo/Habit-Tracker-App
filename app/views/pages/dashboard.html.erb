@@ -4,7 +4,8 @@
 <div class="content">
     <div class="top-dash">
       <span>
-        <p><%= Date.today %></p>
+        <% @date = Date.today %>
+        <p><%= @date.strftime("%B, %d#{@date.day.ordinal}") %></p>
         <h1>Hello <%= current_user.nickname %></h1><hr>
 
         <br>
