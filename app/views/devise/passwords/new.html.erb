@@ -1,6 +1,9 @@
+<body class='sign-up-page'>
+<div class='content'>
 <div class="background-container">
+
   <div class="form-container">
-    <h2 class="form-title">Forgot your password?</h2>
+    <h2 class="form-title password-title">Forgot your password?</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
@@ -12,11 +15,13 @@
                     input_html: { autocomplete: "email" } %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Send me reset password instructions" %>
+      <div class="form-actions form-login">
+        <%= f.button :submit, "Send me reset password instructions", class: 'reset-password-button login-button' %>
       </div>
     <% end %>
 
     <%= render "devise/shared/links" %>
   </div>
+  </div>
 </div>
+</body>

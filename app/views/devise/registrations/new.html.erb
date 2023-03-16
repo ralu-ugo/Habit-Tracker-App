@@ -1,4 +1,6 @@
-<div class="background-container">
+<body class='sign-up-page'>
+<div class='content'>
+  <div class="background-container">
   <div class="form-container">
     <h2 class="form-title">Sign up</h2>
 
@@ -19,11 +21,13 @@
                     input_html: { autocomplete: "new-password" } %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+      <div class="form-actions form-login">
+        <%= f.button :submit, "Sign up", class: 'login-button sign-up-button' %>
       </div>
     <% end %>
 
     <p><%= render "devise/shared/links" %></p>
   </div>
+  </div>
 </div>
+</body>

@@ -11,24 +11,31 @@
 
 
 
-
 <div class= "container-progress">
-  <h2 class = "d-flex h2-progress-page my-4" >Your Overall Habit Progress</h2><hr>
+<div>
+<h2 class = "d-flex h2-progress-weekly" >Your Progress</h2>
+<p class = "info-text-progress">An overview of your completed habits by day</p>
+</div><hr>
 
-  <div class="d-flex justify-content-center my-4">
-    <div data-controller="progress-circle" data-progress-circle-percent-value="<%= current_user.calculate_habit_completion_rate %>">
-    </div>
-  </div>
-
-
-<h2 class = "d-flex h2-progress-page my-4" >Your Weekly Progress</h2><hr>
-
+<div class= "chart-card">
   <div class="chart-wrapper">
     <%= column_chart @habits.map { |habit|
       {name: habit.title, data: habit.habit_slots.where(completed: true).group_by_day(:start_time).count }
-      }, stacked: true, xtitle: "Days of the week", ytitle: "Habits Completed"%>
+      }, stacked: true, xtitle: "Day Completed", ytitle: "No. Habits Completed", colors: ["#452c63", "#800080", "#33006F", "#1d1160", "#662d91"]
+      %>
   </div>
+</div>
 
-  <%= render "shared/navbar" %>
+  <div>
+  <h2 class = "d-flex h2-progress-page" >Your Overall Completion Rate</h2>
+  <p class = "info-text-progress">Calculated completion rate across all habits</p>
+  </div><hr>
+
+  <div class="d-flex justify-content-center progress-circle progress-page-circle">
+    <div data-controller="progress-circle" data-progress-circle-percent-value="<%= current_user.calculate_habit_completion_rate %>">
+    </div>
+  </div>
+    <%= render "shared/navbar" %>
+
 </div>
 </body>

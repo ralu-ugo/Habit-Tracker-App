@@ -1,43 +1,45 @@
 <body class="page">
   <%= render "shared/footer" %>
-    <div class="container form-container">
+    <div class="form-container">
       <h1 class = "new-habit-title">New Habit...</h1>
       <div data-controller="form-toggler">
       <%= simple_form_for([@habit]) do |f| %>
         <div class="form-inputs">
           <%= f.input :title, label: false, placeholder: "Title" %>
           <%= f.input :description, label: false, placeholder: "Description" %>
-          <div class="date_select">
-            <%= f.input :start_date, html5:true, placeholder: "Start Date" %>
-            <%= f.input :end_date, html5:true, placeholder: "End Date" %>
-          </div>
-          <div data-controller="color-picker">
-            <%= f.input :colour1, as: :hidden, input_html: { value: "#667EEA", data: { color_picker_target: "input" } }  %>
+          <%= f.input :start_date, html5:true, placeholder: "Start Date"%>
+          <%= f.input :end_date, html5:true, placeholder: "End Date"%>
+        </div>
+        <div class="colour-picker-flexbox">
+          <div data-controller="color-picker" class="color-picker-1">
+            <%= f.input :colour1, as: :hidden, input_html: { value: "#1837C2", data: { color_picker_target: "input" } }  %>
+            <p>Habit colour 1</p>
             <div data-color-picker-target="button"></div>
           </div>
           <div data-controller="color-picker">
-            <%= f.input :colour2, as: :hidden, input_html: { value: "#667EEA", data: { color_picker_target: "input" } }  %>
+            <%= f.input :colour2, as: :hidden, input_html: { value: "#9F7AEA", data: { color_picker_target: "input" } }  %>
+            <p>Habit colour 2</p>
             <div data-color-picker-target="button"></div>
           </div>
         </div>
-        <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, input_html: { class: "repeat" } %></div>
-        <div class="icon-line d-none" data-controller="dateselect checkbox-select-all" data-form-toggler-target="inputs">
-        <%# <div class="btn btn-primary" data-action="click->checkbox-select-all#checkAll" data-checkbox-select-all-target="checkall"> Do habit everyday </div> %>
-         <div class="form-check">
-            <input id="check-all" type="checkbox" class="form-check-input" data-action="change->checkbox-select-all#checkAll" data-checkbox-select-all-target="checkall">
-            <label for="check-all">Check all</label>
+        <div data-action="change->form-toggler#toggleForm" data-form-toggler-target="repeat"><%= f.input :repeat, as: :boolean, label: "Make this a repeating habit", input_html: { class: "toggle" } %></div>
+        <div class="d-none" data-controller="dateselect checkbox-select-all" data-form-toggler-target="inputs">
+         <%# <div class="toggle">
+            <input id="check-all" type="checkbox" data-action="change->checkbox-select-all#checkAll" data-checkbox-select-all-target="checkall">
+            <label for="check-all">Do habit everyday</label>
+          </div> %>
+          <div class="weekdays">
+            <%= f.input :monday, as: :boolean, label: content_tag(:span, "M"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :tuesday, as: :boolean, label: content_tag(:span, "T"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :wednesday, as: :boolean, label: content_tag(:span, "W"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :thursday, as: :boolean, label: content_tag(:span, "T"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :friday, as: :boolean, label: content_tag(:span, "F"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :saturday, as: :boolean, label: content_tag(:span, "S"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
+            <%= f.input :sunday, as: :boolean, label: content_tag(:span, "S"), label_html: { class: "wkday-icon day-label" }, input_html: { class: "day-checkbox", data: { checkbox_select_all_target: "checkbox" } } %>
           </div>
-          <%= f.input :monday, as: :boolean, label: 'Monday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :tuesday, as: :boolean, label: 'Tuesday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :wednesday, as: :boolean, label: 'Wednesday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :thursday, as: :boolean, label: 'Thursday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :friday, as: :boolean, label: 'Friday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :saturday, as: :boolean, label: 'Saturday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
-          <%= f.input :sunday, as: :boolean, label: 'Sunday', input_html: { class: "icon",  data: { checkbox_select_all_target: "checkbox" } } %>
         </div>
         <%= f.submit "Add" %>
         <% end %>
-      </div>
     </div>
   <%= render "shared/navbar" %>
 </body>

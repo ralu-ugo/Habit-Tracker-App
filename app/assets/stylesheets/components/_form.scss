@@ -1,9 +1,14 @@
 .form-container{
-
+padding: 1rem;
 }
 
 .colour-picker-flexbox {
+  display: flex;
+  justify-content: start;
+}
 
+.color-picker-1 {
+  margin-right: 1rem;
 }
 
 .new-habit-title{
@@ -13,11 +18,32 @@
 }
 
 .weekdays {
-  // display: flex;
-  width: 12px;
+  display: flex;
   color: whitesmoke;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: -1.5rem;
 }
 
 .d-none {
   display: none;
+}
+
+.wkday-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 32px;
+  font-size: 14px;
+  background-color: white;
+  color: black;
+}
+
+.day-checkbox {
+  display: none;
+}
+
+.day-checkbox:checked + .day-label {
+  background-color: green
 }
