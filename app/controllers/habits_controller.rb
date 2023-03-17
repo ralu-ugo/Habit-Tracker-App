@@ -30,35 +30,35 @@ class HabitsController < ApplicationController
   def create
     @habit = Habit.create(habit_params)
     @habit.user_id = current_user.id
-    if @habit.repeat == true
-      if @habit.everyday == true
-        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = true
-      end
-    elsif @habit.repeat == false
-      @habit.everyday = false
-      if @habit.monday == true
-        @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
-      end
-      if @habit.tuesday == true
-        @habit.monday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
-      end
-      if @habit.wednesday == true
-        @habit.monday && @habit.tuesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
-      end
-      if @habit.thursday == true
-        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.friday && @habit.saturday && @habit.sunday = false
-      end
-      if @habit.friday == true
-        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.saturday && @habit.sunday = false
-      end
-      if @habit.saturday == true
-        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.sunday = false
-      end
-      if @habit.sunday == true
-        @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday = false
-      end
-    end
-    @habit.save!
+    # if @habit.repeat == true
+    #   if @habit.everyday == true
+    #     @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = true
+    #   end
+    # elsif @habit.repeat == false
+    #   @habit.everyday = false
+    #   if @habit.monday == true
+    #     @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
+    #   end
+    #   if @habit.tuesday == true
+    #     @habit.monday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
+    #   end
+    #   if @habit.wednesday == true
+    #     @habit.monday && @habit.tuesday && @habit.thursday && @habit.friday && @habit.saturday && @habit.sunday = false
+    #   end
+    #   if @habit.thursday == true
+    #     @habit.monday && @habit.tuesday && @habit.wednesday && @habit.friday && @habit.saturday && @habit.sunday = false
+    #   end
+    #   if @habit.friday == true
+    #     @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.saturday && @habit.sunday = false
+    #   end
+    #   if @habit.saturday == true
+    #     @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.sunday = false
+    #   end
+    #   if @habit.sunday == true
+    #     @habit.monday && @habit.tuesday && @habit.wednesday && @habit.thursday && @habit.friday && @habit.saturday = false
+    #   end
+    # end
+    # @habit.save!
     if @habit.save
       redirect_to habits_path
     else
