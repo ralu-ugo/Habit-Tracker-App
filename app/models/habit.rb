@@ -13,13 +13,13 @@ class Habit < ApplicationRecord
 
   def weekdays
     @weekdays = []
-    @weekdays << 0 if self.monday == true
-    @weekdays << 1 if self.tuesday == true
-    @weekdays << 2 if self.wednesday == true
-    @weekdays << 3 if self.thursday == true
-    @weekdays << 4 if self.friday == true
-    @weekdays << 5 if self.saturday == true
-    @weekdays << 6 if self.sunday == true
+    @weekdays << 1 if self.monday == true
+    @weekdays << 2 if self.tuesday == true
+    @weekdays << 3 if self.wednesday == true
+    @weekdays << 4 if self.thursday == true
+    @weekdays << 5 if self.friday == true
+    @weekdays << 6 if self.saturday == true
+    @weekdays << 0 if self.sunday == true
     @weekdays
   end
 
